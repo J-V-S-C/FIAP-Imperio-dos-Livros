@@ -19,3 +19,7 @@
   -> Organização do código, componentes e boas práticas de HTML, CSS e JavaScript
   -> GitHub: branches, Pull Requests, commits claros e participação do squad 
   -> README, publicação no Vercel e qualidade da documentação de defesa
+
+# Tips:
+Criar uma nova branch localmente
+  -> git checkout -b cortabitart
