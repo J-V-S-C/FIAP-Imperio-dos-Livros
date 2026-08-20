@@ -1,29 +1,50 @@
-# Observações:
-  -> Commits claros, fale o que você fez e uma breve descrição;
-  -> Documentar a divisão das responsabilidades
+## Observações
 
-# Tarefas:
-[ ] Definir o layout CSS e documentar a decisão:
-    Flexbox;
-    CSS Grid;
-    combinação entre Grid e Flexbox;
-    outro recurso CSS justificado tecnicamente.
- [ ] Visualização do produto 
-[ ] Carrinho de compras e interação dele com o produto
-[ ] Compra do produto
+* **Padrão de commits:** Escreva mensagens claras indicando o que foi feito com uma breve descrição do contexto.
+* **Divisão de tarefas:** Manter a documentação com as responsabilidades de cada membro do squad sempre atualizada.
 
-# Obrigatório:
-  -> Uso de arrays, objetos e renderização dinâmica de categorias e produtos
-  -> Carrinho de compras e simulação de checkout
-  -> Interface, responsividade, identidade visual e experiência da pessoa usuária
-  -> Organização do código, componentes e boas práticas de HTML, CSS e JavaScript
-  -> GitHub: branches, Pull Requests, commits claros e participação do squad 
-  -> README, publicação no Vercel e qualidade da documentação de defesa
+---
 
-# Tips:
-Antes de qualquer alteração, carregue as alterações remotas:
-  -> git pull origin main 
-Criar uma nova branch localmente
-  -> git checkout -b [branch]
-Push da branch específica:
-  -> git push -u origin [branch]
+## Checklist de Tarefas
+
+- [ ] **Definição de Layout CSS e Documentação Técnica:**
+  - [ ] Flexbox
+  - [ ] CSS Grid
+  - [ ] Abordagem Híbrida (Grid + Flexbox)
+  - [ ] Outro recurso CSS com justificativa técnica
+- [ ] **Visualização de Produto** (vitrine e detalhes)
+- [ ] **Carrinho de Compras** (gerenciamento de estado e interação com produtos)
+- [ ] **Fluxo de Checkout / Compra**
+
+---
+
+## Requisitos Obrigatórios
+
+* **Manipulação de Dados:** Uso de arrays e objetos para renderização dinâmica de produtos e categorias.
+* **Fluxo de E-commerce:** Carrinho funcional com simulação de checkout.
+* **UI/UX e Design:** Layout responsivo, identidade visual consistente e foco na experiência da pessoa usuária.
+* **Arquitetura e Clean Code:** Estrutura organizada, componentização e boas práticas de HTML5, CSS3 e JavaScript Moderno.
+* **Fluxo de Trabalho Git:** Uso correto de branches, Pull Requests revisados, commits semânticos e participação ativa de todo o squad.
+* **Entrega:** Deploy funcional via Vercel, `README.md` completo e documentação técnica detalhada.
+
+---
+
+## Dicas de Git (Workflow)
+
+Atualizar a branch principal antes de iniciar novas tarefas:
+```bash
+git pull origin main
+
+```
+```bash
+# Criar e alternar para uma nova branch de desenvolvimento:
+
+git checkout -b <nome-da-branch>
+```
+
+Publicar a nova branch no repositório remoto:
+```bash
+
+git push -u origin <nome-da-branch>
+
+```
