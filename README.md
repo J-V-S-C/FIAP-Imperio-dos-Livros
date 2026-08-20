@@ -21,5 +21,9 @@
   -> README, publicação no Vercel e qualidade da documentação de defesa
 
 # Tips:
+Antes de qualquer alteração, carregue as alterações remotas:
+  -> git pull origin main 
 Criar uma nova branch localmente
-  -> git checkout -b cortabitart
+  -> git checkout -b [branch]
+Push da branch específica:
+  -> git push -u origin [branch]
