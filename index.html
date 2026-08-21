@@ -3,19 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imperio dos Livros</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+
+    <header class="header">
+
+        <!-- Logo -->
+        <div class="logo">
+            <span>LIVRARIA</span>
+            <h1>Imperio dos Livros</h1>
+        
+        </div>
+
+        <!-- Menu -->
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Livros</a></li>
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Autores</a></li>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- Busca e ações -->
+        <div class="header-actions">
+
+            <div class="search">
+                <input type="text" placeholder="Buscar livros...">
+                <button>⌕</button>
+            </div>
+
+            <a href="#" class="icon">♙</a>
+            <a href="#" class="icon">♡</a>
+            <a href="#" class="icon">🛒</a>
+
+        </div>
 
     </header>
-    <main>
-        <ul id="lista-livros"></ul>
+    
+
+    <main id="root">
+
+        <h1>My Bookstore</h1>
+
     </main>
-    <footer>
-        <script src="livros.js"></script>
-        <script src="script.js"></script>
+
+
+
+    <footer class="footer">
+        <p>&copy; 2026 Livraria Império dos Livros. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
