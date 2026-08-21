@@ -13,3 +13,173 @@
 | Texto escuro     | `#29180D` |
 
 */
+/* Cor de fundo*/
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #1b120c;
+    color: #e6d3a3;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/761/692/842/wood-texture-wooden-surface-pattern-wallpaper-preview.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: 800px 800px;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a0e08;
+    color: #e5c98a;
+}
+
+/* Estilo do cabeçalho inicio */
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    background: rgba(20, 10, 5, 0.95);
+    border-bottom: 1px solid #8c6a35;
+}
+
+/* Estilo da logo */
+.logo {
+    width: 250px;
+    text-align: center;
+    line-height: 1;
+}
+
+.logo span {
+    display: block;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    color: #c7a45d;
+}
+
+.logo h1 {
+    margin: 4px 0;
+
+    font-family: Georgia, serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+
+    color: #d8b66c;
+}
+
+
+/* Estilo do menu */
+.menu {
+    flex: 1;
+}
+
+.menu ul {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+.menu a {
+    color: #cdb47d;
+
+    text-decoration: none;
+
+    font-family: Georgia, serif;
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #e6c875;
+}
+
+/* Estilo da busca */
+.search {
+    display: flex;
+
+    border: 1px solid #6e5128;
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.search input {
+    width: 250px;
+
+    padding: 7px 12px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #d8c18a;
+
+    font-size: 11px;
+}
+
+.search input::placeholder {
+    color: #80683e;
+}
+
+.search button {
+    padding: 0 10px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #c7a45d;
+
+    cursor: pointer;
+}
+
+/* Estilo de itens */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon {
+    color: #c7a45d;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    transition: 0.3s;
+}
+
+.icon:hover {
+    color: #f0d17c;
+
+    transform: scale(1.15);
+}
+/* Aqui acabou a estilização do cabeçalho */
+
+/* Estilo do footer inicio */
+
+footer {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    background: rgba(20, 10, 5, 0.95);
+    border-top: 1px solid #8c6a35;
+}
