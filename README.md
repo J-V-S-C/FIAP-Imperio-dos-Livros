@@ -8,6 +8,8 @@
 ## Checklist de Tarefas
 
 - [ ] **Definição de Layout CSS e Documentação Técnica:**
+  - [ ] Definir cores e tipografia
+  - [ ] Responsividade e coerência
   - [ ] Flexbox
   - [ ] CSS Grid
   - [ ] Abordagem Híbrida (Grid + Flexbox)
@@ -31,6 +33,7 @@
 
 ## Dicas de Git (Workflow)
 
+
 Atualizar a branch principal antes de iniciar novas tarefas:
 ```bash
 git pull origin main
@@ -45,6 +48,18 @@ git checkout -b <nome-da-branch>
 Publicar a nova branch no repositório remoto:
 ```bash
 
+git add .
+git commit -m "mensagem"
 git push -u origin <nome-da-branch>
 
 ```
+
+### Defesa Técnica do Layout CSS
+
+Adotamos a **abordagem híbrida (CSS Grid + Flexbox)** combinada com **Media Queries**, aplicando cada ferramenta conforme sua finalidade técnica ideal:
+
+* **CSS Grid (Layout Macro e Catálogo):** Utilizado para a estrutura global da página e a vitrine de produtos por ser **bidimensional** (linhas e colunas simultâneas). Com a propriedade `grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))`, os cards de livros se reorganizam automaticamente conforme o espaço disponível, mantendo proporções perfeitas sem a necessidade de scripts auxiliares.
+
+* **Flexbox (Componentes e Micro-alinhamentos):** Utilizado para a barra de navegação, controles do carrinho e interior dos cards de produtos por ser **unidimensional** (eixo único). Nos cards (`flex-direction: column; justify-content: space-between`), o Flexbox garante que os botões de compra fiquem sempre alinhados na base, independentemente da variação de linhas no título ou autor do livro.
+
+* **Media Queries (Adaptação Responsiva):** São diretivas CSS (`@media`) que detectam características do dispositivo (principalmente a largura da tela/viewport) para aplicar regras de estilo condicionais. Foram utilizadas para reestruturar o layout entre mobile e desktop — como transformar o menu horizontal em menu recolhível e ajustar o fluxo do checkout em telas menores, garantindo usabilidade tátil e legibilidade.
