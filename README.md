@@ -33,6 +33,7 @@
 
 ## Dicas de Git (Workflow)
 
+
 Atualizar a branch principal antes de iniciar novas tarefas:
 ```bash
 git pull origin main
@@ -47,6 +48,8 @@ git checkout -b <nome-da-branch>
 Publicar a nova branch no repositório remoto:
 ```bash
 
+git add .
+git commit -m "mensagem"
 git push -u origin <nome-da-branch>
 
 ```
