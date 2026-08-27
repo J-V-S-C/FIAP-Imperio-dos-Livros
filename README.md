@@ -56,6 +56,7 @@ git push -u origin <nome-da-branch>
 
 ### Defesa Técnica do Layout CSS
 
+
 Adotamos a **abordagem híbrida (CSS Grid + Flexbox)** combinada com **Media Queries**, aplicando cada ferramenta conforme sua finalidade técnica ideal:
 
 * **CSS Grid (Layout Macro e Catálogo):** Utilizado para a estrutura global da página e a vitrine de produtos por ser **bidimensional** (linhas e colunas simultâneas). Com a propriedade `grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))`, os cards de livros se reorganizam automaticamente conforme o espaço disponível, mantendo proporções perfeitas sem a necessidade de scripts auxiliares.

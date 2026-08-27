@@ -1,30 +1,20 @@
-/* PALETA DE COR DO SITE
+/* ---------------------------------------------------------
+   𝑷𝑨𝑳𝑬𝑻𝑨 𝑫𝑬 𝑪𝑶𝑹𝑬𝑺
+   ---------------------------------------------------------
 
-| Uso              | Cor       |
-| ---------------- | --------- |
-| Fundo            | `#17100B` |
-| Madeira          | `#24150C` |
-| Pergaminho       | `#C8AA72` |
-| Pergaminho claro | `#E0C890` |
-| Dourado          | `#C49A4A` |
-| Dourado claro    | `#D8B86A` |
-| Vinho            | `#551C15` |
-| Texto claro      | `#E8D7AD` |
-| Texto escuro     | `#29180D` |
+   Fundo:             #17100B
+   Madeira:            #24150C
+   Pergaminho:         #C8AA72
+   Pergaminho claro:   #E0C890
+   Dourado:            #C49A4A
+   Dourado claro:      #D8B86A
+   Vinho:              #551C15
+   Texto claro:        #E8D7AD
+   Texto escuro:       #29180D
+--------------------------------------------------------- */
 
-*/
-/* Cor de fundo*/
-body {
-    margin: 0;
-    min-height: 100vh;
-    background-color: #1b120c;
-    color: #e6d3a3;
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/761/692/842/wood-texture-wooden-surface-pattern-wallpaper-preview.jpg");
-    background-attachment: fixed;
-    background-repeat: repeat;
-    background-size: 800px 800px;
-    
-}
+
+/* 𝑹𝑬𝑺𝑬𝑻 */
 
 * {
     margin: 0;
@@ -32,154 +22,637 @@ body {
     box-sizing: border-box;
 }
 
-body {
-    background-color: #1a0e08;
-    color: #e5c98a;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Estilo do cabeçalho inicio */
-header {
+body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #17100B;
+    color: #E8D7AD;
+
+    font-family: Georgia, serif;
+
+    background-image:
+        linear-gradient(
+            rgba(20, 10, 5, 0.45),
+            rgba(20, 10, 5, 0.45)
+        ),
+        url("https://c4.wallpaperflare.com/wallpaper/761/692/842/wood-texture-wooden-surface-pattern-wallpaper-preview.jpg");
+
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: 800px 800px;
+}
+
+
+/* 𝑯𝑬𝑨𝑫𝑬𝑹 */
+
+.header {
     width: 100%;
-    height: 80px;
+    min-height: 90px;
+
     display: flex;
     align-items: center;
-    padding: 0 30px;
-    background: rgba(20, 10, 5, 0.95);
-    border-bottom: 1px solid #8c6a35;
+
+    padding: 12px 40px;
+
+    background: rgba(20, 10, 5, 0.97);
+
+    border-bottom: 1px solid #8C6A35;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
 }
 
-/* Estilo da logo */
+
+/* 𝑳𝑶𝑮𝑶 */
+
 .logo {
     width: 250px;
+
     text-align: center;
+
     line-height: 1;
 }
 
 .logo span {
     display: block;
 
-    font-size: 11px;
-    letter-spacing: 3px;
+    margin-bottom: 5px;
 
-    color: #c7a45d;
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #C7A45D;
 }
 
 .logo h1 {
-    margin: 4px 0;
-
     font-family: Georgia, serif;
-    font-size: 22px;
+
+    font-size: 23px;
+
     letter-spacing: 2px;
 
-    color: #d8b66c;
+    color: #D8B66C;
 }
 
 
-/* Estilo do menu */
+/* 𝑴𝑬𝑵𝑼 */
+
 .menu {
     flex: 1;
 }
 
 .menu ul {
-    list-style: none;
-
     display: flex;
+
     justify-content: center;
+    align-items: center;
+
     gap: 28px;
+
+    list-style: none;
 }
 
 .menu a {
-    color: #cdb47d;
+    position: relative;
+
+    color: #CDB47D;
 
     text-decoration: none;
 
-    font-family: Georgia, serif;
-    font-size: 13px;
+    font-size: 14px;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
+}
+
+.menu a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: #D8B86A;
+
+    transition: width 0.3s ease;
 }
 
 .menu a:hover {
-    color: #e6c875;
+    color: #E6C875;
 }
 
-/* Estilo da busca */
+.menu a:hover::after {
+    width: 100%;
+}
+
+
+/* A̳Ç̳Õ̳E̳S̳ D̳O̳ H̳E̳A̳D̳E̳R̳ */
+
+.header-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* 𝑩𝑼𝑺𝑪𝑨 */
+
 .search {
     display: flex;
 
-    border: 1px solid #6e5128;
+    width: 250px;
+
+    border: 1px solid #6E5128;
+
     border-radius: 20px;
 
     overflow: hidden;
 
     background: rgba(0, 0, 0, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.search:focus-within {
+    border-color: #C49A4A;
+
+    box-shadow: 0 0 10px rgba(196, 154, 74, 0.2);
 }
 
 .search input {
-    width: 250px;
+    width: 100%;
 
-    padding: 7px 12px;
+    padding: 9px 13px;
 
     border: none;
+
     outline: none;
 
     background: transparent;
 
-    color: #d8c18a;
+    color: #D8C18A;
 
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .search input::placeholder {
-    color: #80683e;
+    color: #80683E;
 }
 
 .search button {
-    padding: 0 10px;
+    padding: 0 12px;
 
     border: none;
 
     background: transparent;
 
-    color: #c7a45d;
+    color: #C7A45D;
 
     cursor: pointer;
+
+    font-size: 17px;
 }
 
-/* Estilo de itens */
 
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+/* ÍCONES */
 
 .icon {
-    color: #c7a45d;
+    color: #C7A45D;
 
     text-decoration: none;
 
     font-size: 18px;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .icon:hover {
-    color: #f0d17c;
+    color: #F0D17C;
 
     transform: scale(1.15);
 }
-/* Aqui acabou a estilização do cabeçalho */
 
-/* Estilo do footer inicio */
 
-footer {
+/* C̳O̳N̳T̳E̳Ú̳D̳O̳ P̳R̳I̳N̳C̳I̳P̳A̳L̳ */
+
+#root {
+    flex: 1;
+
     width: 100%;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 30px;
-    background: rgba(20, 10, 5, 0.95);
-    border-top: 1px solid #8c6a35;
 }
+
+
+/* 𝑯𝑬𝑹𝑶 */
+
+.hero {
+    min-height: 320px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(20, 10, 5, 0.78),
+            rgba(20, 10, 5, 0.78)
+        );
+
+    border-bottom: 1px solid rgba(196, 154, 74, 0.4);
+}
+
+.hero h2 {
+    max-width: 800px;
+
+    margin-bottom: 12px;
+
+    font-size: 38px;
+
+    color: #E0C890;
+
+    letter-spacing: 1px;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+    margin-bottom: 25px;
+
+    color: #C8AA72;
+
+    font-size: 18px;
+}
+
+
+/* BOTÃO PRINCIPAL */
+
+.hero button {
+    padding: 12px 28px;
+
+    border: 1px solid #C49A4A;
+
+    border-radius: 4px;
+
+    background: #551C15;
+
+    color: #E8D7AD;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.hero button:hover {
+    background: #6B241B;
+
+    color: #FFFFFF;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+/* CATÁLOGO */
+
+.catalogo {
+    width: min(1400px, 92%);
+
+    margin: 0 auto;
+
+    padding: 60px 0 80px;
+}
+
+.catalogo > h2 {
+    margin-bottom: 35px;
+
+    text-align: center;
+
+    font-size: 30px;
+
+    color: #E0C890;
+
+    letter-spacing: 1px;
+}
+
+
+/* 𝐋𝐈𝐒𝐓𝐀 𝐃𝐄 𝐋𝐈𝐕𝐑𝐎𝐒 */
+
+#lista-livros {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 28px;
+
+    list-style: none;
+}
+
+
+/* 𝑪𝑨𝑹𝑫 𝑫𝑶 𝑳𝑰𝑽𝑹𝑶 */
+
+#lista-livros li {
+    min-width: 0;
+}
+
+.card {
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(36, 21, 12, 0.97),
+            rgba(23, 16, 11, 0.97)
+        );
+
+    border: 1px solid #6E5128;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+
+    border-color: #C49A4A;
+
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.6),
+        0 0 15px rgba(196, 154, 74, 0.12);
+}
+
+
+/* 𝑪𝑨𝑷𝑨 𝑫𝑶 𝑳𝑰𝑽𝑹𝑶 */
+
+.card img {
+    width: 100%;
+
+    height: 300px;
+
+    display: block;
+
+    object-fit: cover;
+
+    background: #24150C;
+
+    border-bottom: 1px solid #6E5128;
+}
+
+
+/* CONTEÚDO DO CARD */
+
+.card h3 {
+    padding: 18px 18px 8px;
+
+    color: #E0C890;
+
+    font-size: 19px;
+
+    line-height: 1.3;
+}
+
+.card p {
+    padding: 0 18px;
+
+    color: #C8AA72;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* 𝐏𝐑𝐄𝐂̧𝐎 */
+
+.card p:nth-of-type(2) {
+    margin-top: 15px;
+
+    margin-bottom: 18px;
+
+    color: #D8B86A;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* B̳O̳T̳Ã̳O̳ D̳O̳ C̳A̳R̳R̳I̳N̳H̳O̳ */
+
+.card button {
+    width: calc(100% - 36px);
+
+    margin: 0 18px 18px;
+
+    padding: 11px;
+
+    border: 1px solid #8C6A35;
+
+    border-radius: 4px;
+
+    background: #551C15;
+
+    color: #E8D7AD;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.card button:hover {
+    background: #6B241B;
+
+    border-color: #D8B86A;
+
+    color: #FFFFFF;
+}
+
+
+/* 𝑭𝑶𝑶𝑻𝑬𝑹 */
+
+.footer {
+    width: 100%;
+
+    min-height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px 30px;
+
+    background: rgba(20, 10, 5, 0.97);
+
+    border-top: 1px solid #8C6A35;
+
+    color: #D8C18A;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+/* 𝑹𝑬𝑺𝑷𝑶𝑵𝑺𝑰𝑽𝑰𝑫𝑨𝑫𝑬 */
+
+@media (max-width: 1100px) {
+
+    .header {
+        padding: 12px 20px;
+    }
+
+    .logo {
+        width: 190px;
+    }
+
+    .menu ul {
+        gap: 15px;
+    }
+
+    .search {
+        width: 190px;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .header {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+
+        padding: 15px;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .menu {
+        order: 3;
+
+        width: 100%;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .header-actions {
+        position: absolute;
+
+        right: 20px;
+
+        top: 25px;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 280px;
+
+        padding: 40px 15px;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .catalogo {
+        width: 90%;
+
+        padding-top: 40px;
+    }
+
+    .catalogo > h2 {
+        font-size: 25px;
+    }
+
+    #lista-livros {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .card img {
+        height: 360px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
+

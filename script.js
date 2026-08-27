@@ -26,6 +26,7 @@ function renderizarLivrosIndex(livros) {
         // Parte que adiciona o <li> na lista
         listaLivros.appendChild(li);
         contador++;
+        
     });
 
 }

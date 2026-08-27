@@ -1,6 +1,7 @@
 // colecao do carrinho
 const colecaoCarrinho = [];
 
+
 // colecao de produtos
 const colecaoLivros = [
   {
@@ -8,7 +9,7 @@ const colecaoLivros = [
     nome: "Dom Casmurro",
     preco: 29.90,
     descricao: "Clássico de Machado de Assis, romance narrado por Bentinho sobre ciúme e dúvida.",
-    foto: "",
+    foto: "https://static.wixstatic.com/media/5801fd_4de6ed5dc5ea458094e4268b05378b79~mv2.jpg/v1/fill/w_640,h_1000,al_c,q_85,usm_0.66_1.00_0.01/5801fd_4de6ed5dc5ea458094e4268b05378b79~mv2.jpg",
     genero: "Romance"
   },
   {
@@ -16,7 +17,7 @@ const colecaoLivros = [
     nome: "1984",
     preco: 39.90,
     descricao: "Distopia de George Orwell sobre vigilância totalitária e controle da informação.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/81l3pUGbT8L._AC_UF1000,1000_QL80_.jpg",
     genero: "Distopia"
   },
   {
@@ -24,7 +25,7 @@ const colecaoLivros = [
     nome: "O Pequeno Príncipe",
     preco: 24.90,
     descricao: "Fábula de Antoine de Saint-Exupéry sobre amizade, amor e o sentido da vida.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/81TmOZIXvzL.jpg",
     genero: "Fábula"
   },
   {
@@ -32,7 +33,7 @@ const colecaoLivros = [
     nome: "Harry Potter e a Pedra Filosofal",
     preco: 44.90,
     descricao: "Primeiro livro da saga de J.K. Rowling sobre o jovem bruxo Harry Potter.",
-    foto: "",
+    foto: "https://rocco.com.br/wp-content/uploads/2024/04/9786555324013.jpg",
     genero: "Fantasia"
   },
   {
@@ -40,7 +41,7 @@ const colecaoLivros = [
     nome: "O Senhor dos Anéis: A Sociedade do Anel",
     preco: 59.90,
     descricao: "Primeiro volume da trilogia épica de J.R.R. Tolkien.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/81hCVEC0ExL.jpg",
     genero: "Fantasia"
   },
   {
@@ -48,7 +49,7 @@ const colecaoLivros = [
     nome: "A Menina que Roubava Livros",
     preco: 34.90,
     descricao: "Romance de Markus Zusak ambientado na Alemanha nazista, narrado pela Morte.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/61wBBElXvXL._AC_UF1000,1000_QL80_.jpg",
     genero: "Drama Histórico"
   },
   {
@@ -56,7 +57,7 @@ const colecaoLivros = [
     nome: "Capitães da Areia",
     preco: 32.90,
     descricao: "Jorge Amado retrata um grupo de meninos de rua em Salvador.",
-    foto: "",
+    foto: "https://cdl-static.s3-sa-east-1.amazonaws.com/covers/gg/9788535914061/capitaes-da-areia-com-posfacio-de-milton-hatoum.jpg",
     genero: "Romance"
   },
   {
@@ -64,7 +65,7 @@ const colecaoLivros = [
     nome: "Sapiens: Uma Breve História da Humanidade",
     preco: 49.90,
     descricao: "Yuval Noah Harari traça a trajetória da espécie humana.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/81BTkpMrLYL.jpg",
     genero: "História"
   },
   {
@@ -72,7 +73,7 @@ const colecaoLivros = [
     nome: "O Poder do Hábito",
     preco: 39.90,
     descricao: "Charles Duhigg explica a ciência por trás da formação de hábitos.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/815iPX0SgkL.jpg",
     genero: "Autoajuda"
   },
   {
@@ -80,7 +81,7 @@ const colecaoLivros = [
     nome: "A Culpa é das Estrelas",
     preco: 29.90,
     descricao: "John Green narra o amor entre dois jovens com câncer.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/51M9IbBqxCL.jpg",
     genero: "Romance Jovem"
   },
   {
@@ -88,7 +89,7 @@ const colecaoLivros = [
     nome: "It: A Coisa",
     preco: 54.90,
     descricao: "Stephen King e o terror que assombra a cidade de Derry.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/91g9Dvtf+jL._AC_UF1000,1000_QL80_.jpg",
     genero: "Terror"
   },
   {
@@ -96,7 +97,7 @@ const colecaoLivros = [
     nome: "O Alquimista",
     preco: 34.90,
     descricao: "Paulo Coelho narra a jornada de Santiago em busca de seu tesouro pessoal.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/81slUinjTlS._AC_UF1000,1000_QL80_.jpg",
     genero: "Ficção"
   },
   {
@@ -104,7 +105,7 @@ const colecaoLivros = [
     nome: "A Revolução dos Bichos",
     preco: 27.90,
     descricao: "Fábula política de George Orwell sobre poder e corrupção.",
-    foto: "",
+    foto: "https://aveceditora.com.br/wp-content/uploads/2025/02/capa.jpg",
     genero: "Sátira"
   },
   {
@@ -112,7 +113,7 @@ const colecaoLivros = [
     nome: "Vidas Secas",
     preco: 26.90,
     descricao: "Graciliano Ramos retrata a seca e a miséria no sertão nordestino.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/71NYL2AbBIL.jpg",
     genero: "Romance"
   },
   {
@@ -120,7 +121,7 @@ const colecaoLivros = [
     nome: "Duna",
     preco: 64.90,
     descricao: "Frank Herbert constrói um universo de política, religião e ecologia no planeta Arrakis.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/81zN7udGRUL._AC_UF1000,1000_QL80_.jpg",
     genero: "Ficção Científica"
   },
   {
@@ -128,7 +129,7 @@ const colecaoLivros = [
     nome: "O Hobbit",
     preco: 44.90,
     descricao: "A aventura de Bilbo Bolseiro antes da trilogia do Senhor dos Anéis.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/91M9xPIf10L.jpg",
     genero: "Aventura"
   },
   {
@@ -136,7 +137,7 @@ const colecaoLivros = [
     nome: "Orgulho e Preconceito",
     preco: 32.90,
     descricao: "Jane Austen narra o relacionamento entre Elizabeth Bennet e o Sr. Darcy.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/81gOkEhzgIL._UF1000,1000_QL80_.jpg",
     genero: "Romance Clássico"
   },
   {
@@ -144,7 +145,7 @@ const colecaoLivros = [
     nome: "Extraordinário",
     preco: 29.90,
     descricao: "R.J. Palacio conta a história de um garoto com diferenças faciais e sua jornada de aceitação.",
-    foto: "",
+    foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuvZXZJVTgIA8vZGPzmdYwerZX1M-c6Ou4ddO56wpFsQ&s=10",
     genero: "Drama"
   },
   {
@@ -152,7 +153,7 @@ const colecaoLivros = [
     nome: "O Diário de Anne Frank",
     preco: 34.90,
     descricao: "Relato real de uma jovem judia escondida durante a Segunda Guerra Mundial.",
-    foto: "",
+    foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBlzvoG9AVkEB--h_RsU2kjNCyaTCYPAuYS_BZjyG0bg&s=10",
     genero: "Biografia"
   },
   {
@@ -160,7 +161,7 @@ const colecaoLivros = [
     nome: "A Sutil Arte de Ligar o F*da-se",
     preco: 39.90,
     descricao: "Mark Manson propõe uma abordagem direta sobre valores e prioridades na vida.",
-    foto: "",
+    foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLZCMJnUcqSxGLDPPeje2JGFcBIhrioCLrtHWsP_9sxg&s=10",
     genero: "Autoajuda"
   },
   {
@@ -168,7 +169,7 @@ const colecaoLivros = [
     nome: "Torto Arado",
     preco: 44.90,
     descricao: "Itamar Vieira Junior narra a saga de duas irmãs no sertão da Bahia.",
-    foto: "",
+    foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwGlyzL6YTBllCrU8d00BoBSpkl_I_LmcN3CNc7V4_fg&s=10",
     genero: "Romance"
   },
   {
@@ -176,7 +177,7 @@ const colecaoLivros = [
     nome: "O Nome do Vento",
     preco: 54.90,
     descricao: "Patrick Rothfuss inicia a história de Kvothe, o lendário mago e músico.",
-    foto: "",
+    foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR091sWhLAC6IyyLIxErAnq8ovIYEJHTyBsvuI1Zy6iOQ&s=10",
     genero: "Fantasia"
   },
   {
@@ -184,7 +185,7 @@ const colecaoLivros = [
     nome: "Admirável Mundo Novo",
     preco: 34.90,
     descricao: "Aldous Huxley imagina uma sociedade futura controlada por condicionamento genético.",
-    foto: "",
+    foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpHouF4m4e8wsqnxStvS9tP6cqDeD0qOn7C70IsboUgQ&s=10",
     genero: "Ficção Científica"
   },
   {
@@ -192,7 +193,7 @@ const colecaoLivros = [
     nome: "Círculo de Fogo",
     preco: 42.90,
     descricao: "Coletânea de contos de terror e mistério de autores nacionais.",
-    foto: "",
+    foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIdud7FfgUKIrvjS6EP5DZyofqvGht3r3nNvDTv-Hm1A&s",
     genero: "Terror"
   },
   {
@@ -200,7 +201,7 @@ const colecaoLivros = [
     nome: "Como Fazer Amigos e Influenciar Pessoas",
     preco: 36.90,
     descricao: "Dale Carnegie ensina princípios de relacionamento interpessoal.",
-    foto: "",
+    foto: "https://m.media-amazon.com/images/I/71x-i7sKSvL.jpg",
     genero: "Desenvolvimento Pessoal"
   }
 ];
