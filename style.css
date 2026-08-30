@@ -247,6 +247,30 @@ body {
     transform: scale(1.15);
 }
 
+.icon2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #C7A45D;
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.icon2 img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+    
+}
+
+.icon2:hover {
+    transform: scale(1.15);
+    
+}
+
 
 /* C̳O̳N̳T̳E̳Ú̳D̳O̳ P̳R̳I̳N̳C̳I̳P̳A̳L̳ */
 
