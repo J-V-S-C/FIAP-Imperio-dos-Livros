@@ -1,15 +1,15 @@
 import { colecaoLivros } from './livros.js';
 import { adicionarAoCarrinho } from './livros.js';
 
+
+
 // Função que renderiza os livros
 function renderizarLivrosIndex(livros) {
   //"const listaLivros" busca na pagina o elemento com o id "lista-livros" e guarda numa variavel pra poder ser manipulado depois
   const listaLivros = document.getElementById('lista-livros');
+  
   // Limpa a lista antes de renderizar
   listaLivros.innerHTML = '';
-  // Variável para contar o número de livros renderizados (não sei se vai se manter, deixei aqui só porque tinha no exemplo --
-  // mas não sei se a gente vai precisar saber quantos livros tem no total, de qualquer jeito tá ai O_O)
-  let contador = 0;
   // Loop que percorre cada livro e pra cada livro cria um <li> com todas as informações do livro e adiciona na lista
   livros.forEach((livro) => {
     // Variavel que cria o elemento <li> em si
@@ -31,8 +31,21 @@ function renderizarLivrosIndex(livros) {
     });
 
     listaLivros.appendChild(li);
-    contador++;
   });
 }
+
+const dropdownContent = document.querySelector(".dropdown-content");
+
+dropdownContent.addEventListener("click", (e) => {
+  if (e.target.tagName === "A") {
+    e.preventDefault();
+    const genero = e.target.dataset.genero;
+    const livrosFiltrados = genero === "Todos" ? colecaoLivros : colecaoLivros.filter(livro => livro.genero === genero);
+    renderizarLivrosIndex(livrosFiltrados);
+    document.getElementById("titulo-catalogo").textContent = genero === "Todos" ? "Livros em destaque" : `Livros de ${genero}`;
+    document.getElementById("hero").style.display = "none"; 
+  }
+});
+
 console.log(colecaoLivros);
 renderizarLivrosIndex(colecaoLivros);
