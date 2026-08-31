@@ -568,6 +568,291 @@ body {
     text-align: center;
 }
 
+/* =========================================
+   CARRINHO LATERAL
+========================================= */
+
+.carrinho {
+    position: fixed;
+    top: 0;
+    right: -420px;
+
+    width: 400px;
+    max-width: 90%;
+
+    height: 100vh;
+
+    background: #24150c;
+
+    border-left: 1px solid #c49a4a;
+
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.6);
+
+    z-index: 2000;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: right 0.35s ease;
+}
+
+
+/* Carrinho aberto */
+
+.carrinho.aberto {
+    right: 0;
+}
+
+
+/* Cabeçalho */
+
+.carrinho-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px;
+
+    background: rgba(20, 10, 5, 0.97);
+
+    border-bottom: 1px solid #8c6a35;
+}
+
+
+.carrinho-header h2 {
+    margin: 0;
+
+    color: #e0c890;
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+}
+
+
+/* Botão fechar */
+
+.fechar-carrinho {
+    border: none;
+
+    background: transparent;
+
+    color: #c7a45d;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.fechar-carrinho:hover {
+    color: #f0d17c;
+
+    transform: scale(1.1);
+}
+
+
+/* Lista */
+
+.lista-carrinho {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 20px;
+}
+
+
+/* Produto dentro do carrinho */
+
+.item-carrinho {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(196, 154, 74, 0.3);
+}
+
+
+/* Imagem do produto */
+
+.item-carrinho img {
+    width: 70px;
+    height: 95px;
+
+    object-fit: cover;
+
+    border: 1px solid #6e5128;
+
+    border-radius: 4px;
+}
+
+
+/* Informações */
+
+.item-carrinho-info {
+    flex: 1;
+}
+
+
+.item-carrinho-info h3 {
+    margin-bottom: 8px;
+
+    color: #e0c890;
+
+    font-size: 16px;
+}
+
+
+.item-carrinho-info p {
+    margin-bottom: 5px;
+
+    color: #c8aa72;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* Quantidade */
+
+.quantidade-carrinho {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 8px;
+}
+
+
+.quantidade-carrinho button {
+    width: 25px;
+    height: 25px;
+
+    border: 1px solid #8c6a35;
+
+    background: #551c15;
+
+    color: #e8d7ad;
+
+    cursor: pointer;
+
+    border-radius: 3px;
+}
+
+
+.quantidade-carrinho span {
+    color: #e0c890;
+
+    min-width: 20px;
+
+    text-align: center;
+}
+
+
+/* Rodapé do carrinho */
+
+.carrinho-footer {
+    padding: 20px;
+
+    background: rgba(20, 10, 5, 0.97);
+
+    border-top: 1px solid #8c6a35;
+}
+
+
+/* Total */
+
+.carrinho-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    color: #c8aa72;
+
+    font-size: 18px;
+}
+
+
+.carrinho-total strong {
+    color: #d8b86a;
+}
+
+
+/* Botão finalizar */
+
+.btn-finalizar {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #c49a4a;
+
+    border-radius: 4px;
+
+    background: #551c15;
+
+    color: #e8d7ad;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.btn-finalizar:hover {
+    background: #6b241b;
+
+    border-color: #d8b86a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   FUNDO ESCURO
+========================================= */
+
+.overlay-carrinho {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 1500;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+.overlay-carrinho.aberto {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+
 
 /* 𝑹𝑬𝑺𝑷𝑶𝑵𝑺𝑰𝑽𝑰𝑫𝑨𝑫𝑬 */
 
@@ -594,37 +879,41 @@ body {
 @media (max-width: 850px) {
 
     .header {
-        flex-wrap: wrap;
-
+        flex-direction: column;
         justify-content: center;
-
+        align-items: center;
         gap: 15px;
-
-        padding: 15px;
+        padding: 15px 15px 18px;
     }
 
     .logo {
         width: 100%;
     }
 
+    .logo h1 {
+        font-size: 22px;
+    }
+
     .menu {
         order: 3;
-
         width: 100%;
     }
 
     .menu ul {
+        display: flex;
         flex-wrap: wrap;
-
-        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px 18px;
     }
 
     .header-actions {
-        position: absolute;
-
-        right: 20px;
-
-        top: 25px;
+        order: 2;
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
     }
 
     .search {
@@ -678,3 +967,21 @@ body {
     }
 }
 
+/* =========================================
+   RESPONSIVIDADE DO CARRINHO
+========================================= */
+
+@media (max-width: 600px) {
+
+    .carrinho {
+        width: 100%;
+        max-width: 100%;
+
+        right: -100%;
+    }
+
+    .carrinho.aberto {
+        right: 0;
+    }
+
+}

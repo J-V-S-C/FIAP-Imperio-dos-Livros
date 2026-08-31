@@ -11,7 +11,7 @@
       <!-- Logo -->
       <div class="logo">
         <span>LIVRARIA</span>
-        <h1>Imperio dos Livros</h1>
+        <h1>Império dos Livros</h1>
       </div>
 
       <!-- Menu -->
@@ -36,8 +36,8 @@
           <img src="./imagens/usuarioDourado-removebg-preview.png" alt="Usuario">
         </a>
 
-        <a href="carrinho/index.html" class="icon2">
-          <img src="./imagens/bolsaDeCompra.png" alt="Bolsa de compra">
+        <a href="#" class="icon2" id="btn-carrinho">
+          <img src="./imagens/bolsaDeCompra.png" alt="Abrir carrinho">
         </a>
       </div>
     </header>
@@ -55,14 +55,46 @@
         <ul id="lista-livros"></ul>
       </section>
     </main>
-
+    
     <footer class="footer">
       <p>
         &copy; 2026 Livraria Império dos Livros. Todos os direitos reservados.
       </p>
     </footer>
 
+    <aside id="carrinho" class="carrinho">
+
+      <div class="carrinho-header">
+          <h2>Seu Carrinho</h2>
+
+          <button id="fechar-carrinho" class="fechar-carrinho">
+              ×
+          </button>
+      </div>
+
+      <div id="lista-carrinho" class="lista-carrinho">
+          <!-- produtos aparecerão aqui -->
+      </div>
+
+      <div class="carrinho-footer">
+
+          <div class="carrinho-total">
+              <span>Total:</span>
+              <strong id="valor-total">R$ 0,00</strong>
+          </div>
+
+          <button class="btn-finalizar">
+              Finalizar compra
+          </button>
+
+      </div>
+
+    </aside>
+
+    <div id="overlay-carrinho" class="overlay-carrinho"></div>
+
     <script type="module" src="livros.js"></script>
     <script type="module" src="renderizar-livros.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
