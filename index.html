@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Império dos Livros</title>
+    <title>𝑰𝒎𝒑𝒆́𝒓𝒊𝒐 𝒅𝒐𝒔 𝑳𝒊𝒗𝒓𝒐𝒔</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -11,7 +11,7 @@
       <!-- Logo -->
       <div class="logo">
         <span>LIVRARIA</span>
-        <h1>Imperio dos Livros</h1>
+        <h1>Império dos Livros</h1>
       </div>
 
       <!-- Menu -->
@@ -19,7 +19,10 @@
         <ul>
           <li><a href="#">Início</a></li>
           <li><a href="#">Livros</a></li>
-          <li><a href="#">Categorias</a></li>
+          <li class="menu-categorias">
+            <a href="#" id="link-categorias">Categorias</a>
+            <ul id="dropdown-categorias" class="dropdown-categorias"></ul>
+          </li>
           <li><a href="#">Autores</a></li>
           <li><a href="#">Sobre nós</a></li>
           <li><a href="#">Contato</a></li>
@@ -31,11 +34,14 @@
         <div class="search">
           <input type="text" placeholder="Buscar livros..." />
           <button>⌕</button>
-        </div>
+        </div>   
+        <a href="#" class="icon2">
+          <img src="./imagens/usuarioDourado-removebg-preview.png" alt="Usuario">
+        </a>
 
-        <a href="#" class="icon">♙</a>
-        <a href="#" class="icon">♡</a>
-        <a href="carrinho/index.html" class="icon">🛒</a>
+        <a href="#" class="icon2" id="btn-carrinho">
+          <img src="./imagens/bolsaDeCompra.png" alt="Abrir carrinho">
+        </a>
       </div>
     </header>
 
@@ -52,14 +58,47 @@
         <ul id="lista-livros"></ul>
       </section>
     </main>
-
+    
     <footer class="footer">
       <p>
         &copy; 2026 Livraria Império dos Livros. Todos os direitos reservados.
       </p>
     </footer>
 
+    <aside id="carrinho" class="carrinho">
+
+      <div class="carrinho-header">
+          <h2>Seu Carrinho</h2>
+
+          <button id="fechar-carrinho" class="fechar-carrinho">
+              ×
+          </button>
+      </div>
+
+      <div id="lista-carrinho" class="lista-carrinho">
+          <!-- produtos aparecerão aqui -->
+      </div>
+
+      <div class="carrinho-footer">
+
+          <div class="carrinho-total">
+              <span>Total:</span>
+              <strong id="valor-total">R$ 0,00</strong>
+          </div>
+
+          <button class="btn-finalizar">
+              Finalizar compra
+          </button>
+
+      </div>
+
+    </aside>
+
+    <div id="overlay-carrinho" class="overlay-carrinho"></div>
+
     <script type="module" src="livros.js"></script>
     <script type="module" src="renderizar-livros.js"></script>
+    <script type="module" src="renderizar-carrinho.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
