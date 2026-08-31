@@ -384,6 +384,97 @@ body {
 }
 
 
+/* 𝑫𝑹𝑶𝑷𝑫𝑶𝑾𝑵 𝑫𝑬 𝑪𝑨𝑻𝑬𝑮𝑶𝑹𝑰𝑨𝑺 (𝒏𝒐 𝒎𝒆𝒏𝒖) */
+
+.menu-categorias {
+    position: relative;
+}
+
+.menu-categorias > a::after {
+    content: " ▾";
+
+    font-size: 10px;
+}
+
+.dropdown-categorias {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+
+    transform: translate(-50%, -8px);
+
+    min-width: 200px;
+    max-height: 320px;
+
+    overflow-y: auto;
+
+    list-style: none;
+
+    background: rgba(20, 10, 5, 0.98);
+
+    border: 1px solid #6E5128;
+    border-radius: 6px;
+
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+
+    padding: 8px 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 1100;
+}
+
+.menu-categorias:hover .dropdown-categorias,
+.dropdown-categorias.aberto {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translate(-50%, 6px);
+}
+
+.item-categoria {
+    display: block;
+
+    width: 100%;
+
+    padding: 9px 20px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #CDB47D;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.item-categoria:hover {
+    background: rgba(196, 154, 74, 0.12);
+
+    color: #E6C875;
+}
+
+.item-categoria.ativo {
+    color: #E0C890;
+
+    font-weight: bold;
+}
+
+
 /* 𝐋𝐈𝐒𝐓𝐀 𝐃𝐄 𝐋𝐈𝐕𝐑𝐎𝐒 */
 
 #lista-livros {
@@ -402,6 +493,22 @@ body {
 
 #lista-livros li {
     min-width: 0;
+}
+
+/* Mensagem de busca sem resultados */
+
+.sem-resultados {
+    grid-column: 1 / -1;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: #c8aa72;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
 }
 
 .card {
@@ -670,11 +777,106 @@ body {
 .item-carrinho {
     display: flex;
 
+    align-items: flex-start;
+
     gap: 15px;
 
     padding: 15px 0;
 
     border-bottom: 1px solid rgba(196, 154, 74, 0.3);
+}
+
+
+/* Botão de remover item do carrinho */
+
+.btn-remover {
+    border: none;
+
+    background: transparent;
+
+    color: #c7a45d;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.btn-remover:hover {
+    color: #e06a5a;
+
+    transform: scale(1.15);
+}
+
+
+/* Mensagem de carrinho vazio */
+
+.carrinho-vazio {
+    padding: 30px 10px;
+
+    text-align: center;
+
+    color: #c8aa72;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MENSAGEM (TOAST) DE FINALIZAÇÃO DE COMPRA
+========================================= */
+
+.toast-carrinho {
+    position: fixed;
+
+    left: 50%;
+    bottom: 40px;
+
+    transform: translate(-50%, 20px);
+
+    max-width: 90%;
+
+    padding: 14px 26px;
+
+    background: rgba(20, 10, 5, 0.97);
+
+    border: 1px solid #c49a4a;
+
+    border-radius: 6px;
+
+    color: #e8d7ad;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+
+    z-index: 3000;
+
+    transition: opacity 0.35s ease, transform 0.35s ease;
+
+    pointer-events: none;
+}
+
+.toast-carrinho.visivel {
+    opacity: 1;
+
+    transform: translate(-50%, 0);
+}
+
+.toast-carrinho.toast-aviso {
+    border-color: #8c6a35;
+
+    color: #d8b86a;
 }
 
 
@@ -905,6 +1107,32 @@ body {
         justify-content: center;
         align-items: center;
         gap: 12px 18px;
+    }
+
+    /* Em telas menores o menu quebra em várias linhas, então a posição do
+       link "Categorias" varia — o dropdown fica "preso" ao header inteiro
+       (via --header-height, atualizado no script.js) em vez de ficar
+       centralizado embaixo do link, evitando cortar nas bordas da tela */
+    .dropdown-categorias {
+        position: fixed;
+
+        top: var(--header-height, 150px);
+        left: 50%;
+
+        transform: translate(-50%, -8px);
+
+        width: min(90vw, 260px);
+        max-width: 90vw;
+        max-height: min(60vh, 320px);
+    }
+
+    .menu-categorias:hover .dropdown-categorias,
+    .dropdown-categorias.aberto {
+        transform: translate(-50%, 0);
+    }
+
+    .item-categoria {
+        text-align: center;
     }
 
     .header-actions {

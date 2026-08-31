@@ -1,6 +1,30 @@
 // colecao do carrinho
 export const colecaoCarrinho = new Map();
 
+// Ao importar este módulo, sincroniza colecaoCarrinho com o que já
+// estiver salvo no localStorage (evita perder itens entre recarregamentos)
+function carregarCarrinhoSalvo() {
+  const carrinhoSalvo = localStorage.getItem('produtosCarrinho');
+  if (!carrinhoSalvo) return;
+
+  try {
+    const itensSalvos = JSON.parse(carrinhoSalvo);
+    itensSalvos.forEach(([id, quantidade]) => colecaoCarrinho.set(id, quantidade));
+  } catch (erro) {
+    console.error('Erro ao carregar carrinho salvo:', erro);
+  }
+}
+
+carregarCarrinhoSalvo();
+
+// Salva o estado atual do carrinho e avisa quem estiver "escutando"
+// (ex: a renderização do carrinho) que houve mudança
+function salvarCarrinho() {
+  const colecaoCarrinhoArray = Array.from(colecaoCarrinho.entries());
+  localStorage.setItem('produtosCarrinho', JSON.stringify(colecaoCarrinhoArray));
+  document.dispatchEvent(new CustomEvent('carrinho:atualizado'));
+}
+
 // colecao de produtos
 export const colecaoLivros = [
   {
@@ -226,16 +250,30 @@ export const colecaoLivros = [
 export function adicionarAoCarrinho(produtoId) {
   const quantidade = colecaoCarrinho.get(produtoId) || 0;
 
-  // Um set é usado para salvar os produtos em: [ProdutoID : Quantidade]
+  // Um Map é usado para salvar os produtos em: [ProdutoID : Quantidade]
   colecaoCarrinho.set(produtoId, quantidade + 1);
 
-  // É preciso converter para um array para salvar em localstorage
-  const colecaoCarrinhoArray = Array.from(colecaoCarrinho.entries());
+  salvarCarrinho();
+}
 
-  localStorage.setItem(
-    'produtosCarrinho',
-    JSON.stringify(colecaoCarrinhoArray),
-  );
-  console.log(colecaoCarrinho);
-  console.log(localStorage.getItem('produtosCarrinho'));
+export function diminuirQuantidade(produtoId) {
+  const quantidade = colecaoCarrinho.get(produtoId) || 0;
+
+  if (quantidade <= 1) {
+    colecaoCarrinho.delete(produtoId);
+  } else {
+    colecaoCarrinho.set(produtoId, quantidade - 1);
+  }
+
+  salvarCarrinho();
+}
+
+export function removerDoCarrinho(produtoId) {
+  colecaoCarrinho.delete(produtoId);
+  salvarCarrinho();
+}
+
+export function limparCarrinho() {
+  colecaoCarrinho.clear();
+  salvarCarrinho();
 }
