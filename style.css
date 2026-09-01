@@ -1,17 +1,17 @@
 /* ---------------------------------------------------------
    𝑷𝑨𝑳𝑬𝑻𝑨 𝑫𝑬 𝑪𝑶𝑹𝑬𝑺
    ---------------------------------------------------------
-
-   Fundo:             #17100B
-   Madeira:            #24150C
-   Pergaminho:         #C8AA72
-   Pergaminho claro:   #E0C890
-   Dourado:            #C49A4A
-   Dourado claro:      #D8B86A
-   Vinho:              #551C15
-   Texto claro:        #E8D7AD
-   Texto escuro:       #29180D
---------------------------------------------------------- */
+---------------------------------
+   Fundo:           |  #17100B  |
+   Madeira:         |   #24150C |
+   Pergaminho:      |   #C8AA72 |
+   Pergaminho claro:|   #E0C890 |
+   Dourado:         |   #C49A4A |
+   Dourado claro:   |   #D8B86A |
+   Vinho:           |   #551C15 |
+   Texto claro:     |   #E8D7AD |
+   Texto escuro:    |   #29180D |
+--------------------------------- */
 
 /* dropdown genero menu */
 .dropbtn {
@@ -318,6 +318,28 @@ body {
     transform: scale(1.15);
 }
 
+.icon2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.icon2 img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+    
+}
+
+.icon2:hover {
+    transform: scale(1.15);
+    
+}
+
 
 /* C̳O̳N̳T̳E̳Ú̳D̳O̳ P̳R̳I̳N̳C̳I̳P̳A̳L̳ */
 
@@ -433,6 +455,97 @@ body {
 }
 
 
+/* 𝑫𝑹𝑶𝑷𝑫𝑶𝑾𝑵 𝑫𝑬 𝑪𝑨𝑻𝑬𝑮𝑶𝑹𝑰𝑨𝑺 (𝒏𝒐 𝒎𝒆𝒏𝒖) */
+
+.menu-categorias {
+    position: relative;
+}
+
+.menu-categorias > a::after {
+    content: " ▾";
+
+    font-size: 10px;
+}
+
+.dropdown-categorias {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+
+    transform: translate(-50%, -8px);
+
+    min-width: 200px;
+    max-height: 320px;
+
+    overflow-y: auto;
+
+    list-style: none;
+
+    background: rgba(20, 10, 5, 0.98);
+
+    border: 1px solid #6E5128;
+    border-radius: 6px;
+
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+
+    padding: 8px 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 1100;
+}
+
+.menu-categorias:hover .dropdown-categorias,
+.dropdown-categorias.aberto {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translate(-50%, 6px);
+}
+
+.item-categoria {
+    display: block;
+
+    width: 100%;
+
+    padding: 9px 20px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #CDB47D;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.item-categoria:hover {
+    background: rgba(196, 154, 74, 0.12);
+
+    color: #E6C875;
+}
+
+.item-categoria.ativo {
+    color: #E0C890;
+
+    font-weight: bold;
+}
+
+
 /* 𝐋𝐈𝐒𝐓𝐀 𝐃𝐄 𝐋𝐈𝐕𝐑𝐎𝐒 */
 
 #lista-livros {
@@ -451,6 +564,22 @@ body {
 
 #lista-livros li {
     min-width: 0;
+}
+
+/* Mensagem de busca sem resultados */
+
+.sem-resultados {
+    grid-column: 1 / -1;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: #c8aa72;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
 }
 
 .card {
@@ -617,6 +746,386 @@ body {
     text-align: center;
 }
 
+/* =========================================
+   CARRINHO LATERAL
+========================================= */
+
+.carrinho {
+    position: fixed;
+    top: 0;
+    right: -420px;
+
+    width: 400px;
+    max-width: 90%;
+
+    height: 100vh;
+
+    background: #24150c;
+
+    border-left: 1px solid #c49a4a;
+
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.6);
+
+    z-index: 2000;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: right 0.35s ease;
+}
+
+
+/* Carrinho aberto */
+
+.carrinho.aberto {
+    right: 0;
+}
+
+
+/* Cabeçalho */
+
+.carrinho-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px;
+
+    background: rgba(20, 10, 5, 0.97);
+
+    border-bottom: 1px solid #8c6a35;
+}
+
+
+.carrinho-header h2 {
+    margin: 0;
+
+    color: #e0c890;
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+}
+
+
+/* Botão fechar */
+
+.fechar-carrinho {
+    border: none;
+
+    background: transparent;
+
+    color: #c7a45d;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.fechar-carrinho:hover {
+    color: #f0d17c;
+
+    transform: scale(1.1);
+}
+
+
+/* Lista */
+
+.lista-carrinho {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 20px;
+}
+
+
+/* Produto dentro do carrinho */
+
+.item-carrinho {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(196, 154, 74, 0.3);
+}
+
+
+/* Botão de remover item do carrinho */
+
+.btn-remover {
+    border: none;
+
+    background: transparent;
+
+    color: #c7a45d;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.btn-remover:hover {
+    color: #e06a5a;
+
+    transform: scale(1.15);
+}
+
+
+/* Mensagem de carrinho vazio */
+
+.carrinho-vazio {
+    padding: 30px 10px;
+
+    text-align: center;
+
+    color: #c8aa72;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MENSAGEM (TOAST) DE FINALIZAÇÃO DE COMPRA
+========================================= */
+
+.toast-carrinho {
+    position: fixed;
+
+    left: 50%;
+    bottom: 40px;
+
+    transform: translate(-50%, 20px);
+
+    max-width: 90%;
+
+    padding: 14px 26px;
+
+    background: rgba(20, 10, 5, 0.97);
+
+    border: 1px solid #c49a4a;
+
+    border-radius: 6px;
+
+    color: #e8d7ad;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+
+    z-index: 3000;
+
+    transition: opacity 0.35s ease, transform 0.35s ease;
+
+    pointer-events: none;
+}
+
+.toast-carrinho.visivel {
+    opacity: 1;
+
+    transform: translate(-50%, 0);
+}
+
+.toast-carrinho.toast-aviso {
+    border-color: #8c6a35;
+
+    color: #d8b86a;
+}
+
+
+/* Imagem do produto */
+
+.item-carrinho img {
+    width: 70px;
+    height: 95px;
+
+    object-fit: cover;
+
+    border: 1px solid #6e5128;
+
+    border-radius: 4px;
+}
+
+
+/* Informações */
+
+.item-carrinho-info {
+    flex: 1;
+}
+
+
+.item-carrinho-info h3 {
+    margin-bottom: 8px;
+
+    color: #e0c890;
+
+    font-size: 16px;
+}
+
+
+.item-carrinho-info p {
+    margin-bottom: 5px;
+
+    color: #c8aa72;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* Quantidade */
+
+.quantidade-carrinho {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 8px;
+}
+
+
+.quantidade-carrinho button {
+    width: 25px;
+    height: 25px;
+
+    border: 1px solid #8c6a35;
+
+    background: #551c15;
+
+    color: #e8d7ad;
+
+    cursor: pointer;
+
+    border-radius: 3px;
+}
+
+
+.quantidade-carrinho span {
+    color: #e0c890;
+
+    min-width: 20px;
+
+    text-align: center;
+}
+
+
+/* Rodapé do carrinho */
+
+.carrinho-footer {
+    padding: 20px;
+
+    background: rgba(20, 10, 5, 0.97);
+
+    border-top: 1px solid #8c6a35;
+}
+
+
+/* Total */
+
+.carrinho-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    color: #c8aa72;
+
+    font-size: 18px;
+}
+
+
+.carrinho-total strong {
+    color: #d8b86a;
+}
+
+
+/* Botão finalizar */
+
+.btn-finalizar {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #c49a4a;
+
+    border-radius: 4px;
+
+    background: #551c15;
+
+    color: #e8d7ad;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.btn-finalizar:hover {
+    background: #6b241b;
+
+    border-color: #d8b86a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   FUNDO ESCURO
+========================================= */
+
+.overlay-carrinho {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 1500;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+.overlay-carrinho.aberto {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+
 
 /* 𝑹𝑬𝑺𝑷𝑶𝑵𝑺𝑰𝑽𝑰𝑫𝑨𝑫𝑬 */
 
@@ -643,37 +1152,67 @@ body {
 @media (max-width: 850px) {
 
     .header {
-        flex-wrap: wrap;
-
+        flex-direction: column;
         justify-content: center;
-
+        align-items: center;
         gap: 15px;
-
-        padding: 15px;
+        padding: 15px 15px 18px;
     }
 
     .logo {
         width: 100%;
     }
 
+    .logo h1 {
+        font-size: 22px;
+    }
+
     .menu {
         order: 3;
-
         width: 100%;
     }
 
     .menu ul {
+        display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 12px 18px;
+    }
 
-        gap: 15px;
+    /* Em telas menores o menu quebra em várias linhas, então a posição do
+       link "Categorias" varia — o dropdown fica "preso" ao header inteiro
+       (via --header-height, atualizado no script.js) em vez de ficar
+       centralizado embaixo do link, evitando cortar nas bordas da tela */
+    .dropdown-categorias {
+        position: fixed;
+
+        top: var(--header-height, 150px);
+        left: 50%;
+
+        transform: translate(-50%, -8px);
+
+        width: min(90vw, 260px);
+        max-width: 90vw;
+        max-height: min(60vh, 320px);
+    }
+
+    .menu-categorias:hover .dropdown-categorias,
+    .dropdown-categorias.aberto {
+        transform: translate(-50%, 0);
+    }
+
+    .item-categoria {
+        text-align: center;
     }
 
     .header-actions {
-        position: absolute;
-
-        right: 20px;
-
-        top: 25px;
+        order: 2;
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
     }
 
     .search {
@@ -727,3 +1266,21 @@ body {
     }
 }
 
+/* =========================================
+   RESPONSIVIDADE DO CARRINHO
+========================================= */
+
+@media (max-width: 600px) {
+
+    .carrinho {
+        width: 100%;
+        max-width: 100%;
+
+        right: -100%;
+    }
+
+    .carrinho.aberto {
+        right: 0;
+    }
+
+}

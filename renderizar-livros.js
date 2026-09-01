@@ -4,8 +4,8 @@ import { adicionarAoCarrinho } from './livros.js';
 
 
 // Função que renderiza os livros
-function renderizarLivrosIndex(livros) {
-  //"const listaLivros" busca na pagina o elemento com o id "lista-livros" e guarda numa variavel pra poder ser manipulado depois
+function renderizarLivrosIndex(livros, termoBusca = '', categoria = '') {
+  // "const listaLivros" busca na pagina o elemento com o id "lista-livros" e guarda numa variavel pra poder ser manipulado depois
   const listaLivros = document.getElementById('lista-livros');
   
   // Limpa a lista antes de renderizar
