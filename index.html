@@ -19,10 +19,25 @@
         <ul>
           <li><a href="#">Início</a></li>
           <li><a href="#">Livros</a></li>
+          <li>
+                <div class="dropdown" >
+                    <button class="dropbtn" type="button">Generos</button>
+                    <div class="dropdown-content">
+                        <a href="#" data-genero="Todos">Todos</a>
+                        <a href="#" data-genero="Romance">Romance</a>
+                        <a href="#" data-genero="Distopia">Distopia</a>
+                        <a href="#" data-genero="Fábula">Fábula</a>
+                        <a href="#" data-genero="Fantasia">Fantasia</a>
+                        <a href="#" data-genero="História">História</a>
+                    </div>
+                </div>
+            </li>
+        <--
           <li class="menu-categorias">
             <a href="#" id="link-categorias">Categorias</a>
             <ul id="dropdown-categorias" class="dropdown-categorias"></ul>
           </li>
+        -->
           <li><a href="#">Autores</a></li>
           <li><a href="#">Sobre nós</a></li>
           <li><a href="#">Contato</a></li>
@@ -46,14 +61,14 @@
     </header>
 
     <main id="root">
-      <section class="hero">
+      <section class="hero" id="hero">
         <h2>Bem-vindo à Livraria Império dos Livros</h2>
         <p>A sua jornada começa entre páginas.</p>
         <button>Explorar livros</button>
       </section>
 
-      <section class="catalogo">
-        <h2>Livros em destaque</h2>
+      <section class="catalogo" id="catalogo">
+        <h2 id="titulo-catalogo">Livros em destaque</h2>
 
         <ul id="lista-livros"></ul>
       </section>
