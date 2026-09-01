@@ -1,32 +1,4 @@
-// colecao do carrinho
-export const colecaoCarrinho = new Map();
-
-// Ao importar este módulo, sincroniza colecaoCarrinho com o que já
-// estiver salvo no localStorage (evita perder itens entre recarregamentos)
-function carregarCarrinhoSalvo() {
-  const carrinhoSalvo = localStorage.getItem('produtosCarrinho');
-  if (!carrinhoSalvo) return;
-
-  try {
-    const itensSalvos = JSON.parse(carrinhoSalvo);
-    itensSalvos.forEach(([id, quantidade]) => colecaoCarrinho.set(id, quantidade));
-  } catch (erro) {
-    console.error('Erro ao carregar carrinho salvo:', erro);
-  }
-}
-
-carregarCarrinhoSalvo();
-
-// Salva o estado atual do carrinho e avisa quem estiver "escutando"
-// (ex: a renderização do carrinho) que houve mudança
-function salvarCarrinho() {
-  const colecaoCarrinhoArray = Array.from(colecaoCarrinho.entries());
-  localStorage.setItem('produtosCarrinho', JSON.stringify(colecaoCarrinhoArray));
-  document.dispatchEvent(new CustomEvent('carrinho:atualizado'));
-}
-
-// colecao de produtos
-export const colecaoLivros = [
+export const LIVROS = [
   {
     id: 'lv01a1b2',
     nome: 'Dom Casmurro',
@@ -78,7 +50,7 @@ export const colecaoLivros = [
     descricao:
       'Romance de Markus Zusak ambientado na Alemanha nazista, narrado pela Morte.',
     foto: 'https://m.media-amazon.com/images/I/61wBBElXvXL._AC_UF1000,1000_QL80_.jpg',
-    genero: 'Drama Histórico',
+    genero: 'Drama',
   },
   {
     id: 'lv07m3n4',
@@ -111,7 +83,7 @@ export const colecaoLivros = [
     preco: 29.9,
     descricao: 'John Green narra o amor entre dois jovens com câncer.',
     foto: 'https://m.media-amazon.com/images/I/51M9IbBqxCL.jpg',
-    genero: 'Romance Jovem',
+    genero: 'Romance',
   },
   {
     id: 'lv11u1v2',
@@ -136,7 +108,7 @@ export const colecaoLivros = [
     preco: 27.9,
     descricao: 'Fábula política de George Orwell sobre poder e corrupção.',
     foto: 'https://aveceditora.com.br/wp-content/uploads/2025/02/capa.jpg',
-    genero: 'Sátira',
+    genero: 'Fábula',
   },
   {
     id: 'lv14a7b8',
@@ -163,7 +135,7 @@ export const colecaoLivros = [
     descricao:
       'A aventura de Bilbo Bolseiro antes da trilogia do Senhor dos Anéis.',
     foto: 'https://m.media-amazon.com/images/I/91M9xPIf10L.jpg',
-    genero: 'Aventura',
+    genero: 'Fantasia',
   },
   {
     id: 'lv17g3h4',
@@ -172,7 +144,7 @@ export const colecaoLivros = [
     descricao:
       'Jane Austen narra o relacionamento entre Elizabeth Bennet e o Sr. Darcy.',
     foto: 'https://m.media-amazon.com/images/I/81gOkEhzgIL._UF1000,1000_QL80_.jpg',
-    genero: 'Romance Clássico',
+    genero: 'Romance',
   },
   {
     id: 'lv18i5j6',
@@ -190,7 +162,7 @@ export const colecaoLivros = [
     descricao:
       'Relato real de uma jovem judia escondida durante a Segunda Guerra Mundial.',
     foto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBlzvoG9AVkEB--h_RsU2kjNCyaTCYPAuYS_BZjyG0bg&s=10',
-    genero: 'Biografia',
+    genero: 'História',
   },
   {
     id: 'lv20m9n0',
@@ -226,7 +198,7 @@ export const colecaoLivros = [
     descricao:
       'Aldous Huxley imagina uma sociedade futura controlada por condicionamento genético.',
     foto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpHouF4m4e8wsqnxStvS9tP6cqDeD0qOn7C70IsboUgQ&s=10',
-    genero: 'Ficção Científica',
+    genero: 'Distopia',
   },
   {
     id: 'lv24u7v8',
@@ -243,37 +215,6 @@ export const colecaoLivros = [
     descricao:
       'Dale Carnegie ensina princípios de relacionamento interpessoal.',
     foto: 'https://m.media-amazon.com/images/I/71x-i7sKSvL.jpg',
-    genero: 'Desenvolvimento Pessoal',
+    genero: 'Autoajuda',
   },
 ];
-
-export function adicionarAoCarrinho(produtoId) {
-  const quantidade = colecaoCarrinho.get(produtoId) || 0;
-
-  // Um Map é usado para salvar os produtos em: [ProdutoID : Quantidade]
-  colecaoCarrinho.set(produtoId, quantidade + 1);
-
-  salvarCarrinho();
-}
-
-export function diminuirQuantidade(produtoId) {
-  const quantidade = colecaoCarrinho.get(produtoId) || 0;
-
-  if (quantidade <= 1) {
-    colecaoCarrinho.delete(produtoId);
-  } else {
-    colecaoCarrinho.set(produtoId, quantidade - 1);
-  }
-
-  salvarCarrinho();
-}
-
-export function removerDoCarrinho(produtoId) {
-  colecaoCarrinho.delete(produtoId);
-  salvarCarrinho();
-}
-
-export function limparCarrinho() {
-  colecaoCarrinho.clear();
-  salvarCarrinho();
-}
