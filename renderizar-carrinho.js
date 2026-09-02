@@ -5,6 +5,7 @@ import {
   diminuirQuantidade,
   removerDoCarrinho,
   limparCarrinho,
+  mostrarMensagem,
 } from './livros.js';
 
 const listaCarrinho = document.getElementById('lista-carrinho');
@@ -12,15 +13,35 @@ const valorTotalElemento = document.getElementById('valor-total');
 const btnFinalizar = document.querySelector('.btn-finalizar');
 const carrinhoElemento = document.getElementById('carrinho');
 const overlayElemento = document.getElementById('overlay-carrinho');
+const badgeCarrinho = document.getElementById('contador-carrinho');
 
 // Formata número para o padrão de preço brasileiro (R$ 0,00)
 function formatarPreco(valor) {
   return `R$ ${valor.toFixed(2).replace('.', ',')}`;
 }
 
+// Atualiza o número que aparece sobre o ícone do carrinho no header
+function atualizarBadgeCarrinho() {
+  const totalItens = Array.from(colecaoCarrinho.values()).reduce(
+    (soma, quantidade) => soma + quantidade,
+    0,
+  );
+
+  if (totalItens === 0) {
+    badgeCarrinho.textContent = '';
+    badgeCarrinho.classList.remove('visivel');
+    return;
+  }
+
+  badgeCarrinho.textContent = totalItens > 99 ? '99+' : totalItens;
+  badgeCarrinho.classList.add('visivel');
+}
+
 // Percorre colecaoCarrinho e desenha cada item dentro de #lista-carrinho
 function renderizarCarrinho() {
   listaCarrinho.innerHTML = '';
+
+  atualizarBadgeCarrinho();
 
   if (colecaoCarrinho.size === 0) {
     listaCarrinho.innerHTML =
@@ -77,22 +98,6 @@ listaCarrinho.addEventListener('click', (evento) => {
 // Sempre que o carrinho mudar (em qualquer arquivo), re-renderiza
 document.addEventListener('carrinho:atualizado', renderizarCarrinho);
 
-// Mostra uma mensagem temporária (toast) na tela
-function mostrarMensagem(texto, tipo = 'sucesso') {
-  const mensagem = document.createElement('div');
-  mensagem.className = `toast-carrinho toast-${tipo}`;
-  mensagem.textContent = texto;
-  document.body.appendChild(mensagem);
-
-  // pequeno delay pra garantir que a transição de entrada seja aplicada
-  requestAnimationFrame(() => mensagem.classList.add('visivel'));
-
-  setTimeout(() => {
-    mensagem.classList.remove('visivel');
-    setTimeout(() => mensagem.remove(), 400);
-  }, 2800);
-}
-
 // Botão "Finalizar compra"
 btnFinalizar.addEventListener('click', () => {
   if (colecaoCarrinho.size === 0) {
@@ -101,7 +106,7 @@ btnFinalizar.addEventListener('click', () => {
   }
 
   mostrarMensagem(
-    'Compra finalizada com sucesso! Obrigado por comprar na Império dos Livros. 🥹',
+    'Compra finalizada com sucesso! Obrigado por comprar na Império dos Livros. 📚',
   );
 
   limparCarrinho();

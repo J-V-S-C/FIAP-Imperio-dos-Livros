@@ -1,11 +1,11 @@
-import { colecaoLivros } from './livros.js';
-import { adicionarAoCarrinho } from './livros.js';
+import { colecaoLivros, adicionarAoCarrinho, mostrarMensagem } from './livros.js';
 
 const inputBusca = document.querySelector('.search input');
 const botaoBusca = document.querySelector('.search button');
 const menuCategorias = document.querySelector('.menu-categorias');
 const linkCategorias = document.getElementById('link-categorias');
 const dropdownCategorias = document.getElementById('dropdown-categorias');
+const linkInicio = document.getElementById('link-inicio');
 
 let termoBuscaAtual = '';
 let categoriaAtual = ''; // '' = "Todos"
@@ -27,6 +27,7 @@ function filtrarPorTermo(livros, termo) {
   return livros.filter(
     (livro) =>
       normalizarTexto(livro.nome).includes(termoNormalizado) ||
+      normalizarTexto(livro.autor).includes(termoNormalizado) ||
       normalizarTexto(livro.genero).includes(termoNormalizado) ||
       normalizarTexto(livro.descricao).includes(termoNormalizado),
   );
@@ -64,11 +65,12 @@ function renderizarLivrosIndex(livros, termoBusca = '', categoria = '') {
     const li = document.createElement('li');
     // <li> criado com base no livro atual do loop, com todas as informações do livro
     li.innerHTML = `
-            <div class="card" id="formularioCarrinho">
+            <div class="card">
                 <img src="${livro.foto}" alt="${livro.nome}">
                 <h3>${livro.nome}</h3>
+                <p class="autor-livro">${livro.autor}</p>
                 <p>${livro.descricao}</p>
-                <p>Preço: R$ ${livro.preco.toFixed(2)}</p>
+                <p class="preco-livro">Preço: R$ ${livro.preco.toFixed(2)}</p>
                 <button class="btn-comprar" >Adicionar ao Carrinho</button>
             </div>
         `;
@@ -76,6 +78,7 @@ function renderizarLivrosIndex(livros, termoBusca = '', categoria = '') {
     const botao = li.querySelector('.btn-comprar');
     botao.addEventListener('click', () => {
       adicionarAoCarrinho(livro.id);
+      mostrarMensagem(`"${livro.nome}" adicionado ao carrinho.`);
     });
 
     listaLivros.appendChild(li);
@@ -133,10 +136,6 @@ function renderizarDropdownCategorias() {
   generos.forEach((genero) => criarItem(genero, genero));
 }
 
-function abrirDropdownCategorias() {
-  dropdownCategorias.classList.add('aberto');
-}
-
 function fecharDropdownCategorias() {
   dropdownCategorias.classList.remove('aberto');
 }
@@ -172,6 +171,20 @@ document.addEventListener('click', (evento) => {
 // Fecha o dropdown com a tecla Esc
 document.addEventListener('keydown', (evento) => {
   if (evento.key === 'Escape') fecharDropdownCategorias();
+});
+
+// "Início" limpa busca e filtro de categoria e volta pro topo da página
+linkInicio.addEventListener('click', (evento) => {
+  evento.preventDefault();
+
+  termoBuscaAtual = '';
+  categoriaAtual = '';
+  inputBusca.value = '';
+
+  aplicarFiltros();
+  renderizarDropdownCategorias();
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 renderizarDropdownCategorias();

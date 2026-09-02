@@ -3,6 +3,11 @@ const carrinho = document.getElementById('carrinho');
 const fecharCarrinho = document.getElementById('fechar-carrinho');
 const overlayCarrinho = document.getElementById('overlay-carrinho');
 const header = document.querySelector('.header');
+const btnExplorar = document.getElementById('btn-explorar');
+const linkLivros = document.getElementById('link-livros');
+const linkSobre = document.getElementById('link-sobre');
+const linkContato = document.getElementById('link-contato');
+const footer = document.querySelector('.footer');
 
 
 // Mantém a variável --header-height sempre atualizada. O header quebra em
@@ -50,3 +55,32 @@ overlayCarrinho.addEventListener('click', () => {
     overlayCarrinho.classList.remove('aberto');
 
 });
+
+
+// Rolar até o catálogo
+function rolarAteCatalogo() {
+
+    document.querySelector('.catalogo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+}
+
+btnExplorar.addEventListener('click', rolarAteCatalogo);
+
+linkLivros.addEventListener('click', (evento) => {
+
+    evento.preventDefault();
+    rolarAteCatalogo();
+
+});
+
+
+// "Sobre nós" e "Contato" levam até o footer
+function rolarAteFooter(evento) {
+
+    evento.preventDefault();
+    footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+}
+
+linkSobre.addEventListener('click', rolarAteFooter);
+linkContato.addEventListener('click', rolarAteFooter);
