@@ -11,7 +11,6 @@ export function renderizarCatalogo() {
 
   if (!listaElemento) return;
 
-  // Filtragem combinada (Gênero + Busca textual)
   const termoNormalizado = termoBuscaAtual.trim().toLowerCase();
 
   const livrosFiltrados = LIVROS.filter((livro) => {
@@ -22,12 +21,12 @@ export function renderizarCatalogo() {
       !termoNormalizado ||
       livro.nome.toLowerCase().includes(termoNormalizado) ||
       livro.descricao.toLowerCase().includes(termoNormalizado) ||
+      livro.autor?.toLowerCase().includes(termoNormalizado) ||
       livro.genero.toLowerCase().includes(termoNormalizado);
 
     return matchGenero && matchBusca;
   });
 
-  // Atualiza título da seção
   if (tituloElemento) {
     if (termoNormalizado) {
       tituloElemento.textContent = `Resultados para "${termoBuscaAtual}" (${livrosFiltrados.length})`;
@@ -38,7 +37,6 @@ export function renderizarCatalogo() {
     }
   }
 
-  // Renderização vazia
   if (livrosFiltrados.length === 0) {
     listaElemento.innerHTML = `
       <li class="sem-resultados">
@@ -48,7 +46,6 @@ export function renderizarCatalogo() {
     return;
   }
 
-  // Renderiza cards
   listaElemento.innerHTML = livrosFiltrados
     .map(
       (livro) => `
@@ -58,13 +55,15 @@ export function renderizarCatalogo() {
           <div class="card-conteudo">
             <span class="card-genero">${livro.genero}</span>
             <h3>${livro.nome}</h3>
-            <p>${livro.descricao}</p>
-          </div>
-          <div class="card-acoes">
-            <p class="card-preco">${formatarPreco(livro.preco)}</p>
-            <button class="btn-comprar" data-id="${livro.id}">
-              Adicionar ao Carrinho
-            </button>
+            ${livro.autor ? `<p class="autor-livro">${livro.autor}</p>` : ''}
+            <p class="descricao-livro">${livro.descricao}</p>
+            
+            <div class="card-rodape">
+              <span class="preco-destaque">${formatarPreco(livro.preco)}</span>
+              <button class="btn-comprar" data-id="${livro.id}" type="button">
+                Adicionar ao Carrinho
+              </button>
+            </div>
           </div>
         </article>
       </li>
@@ -83,7 +82,6 @@ export function setTermoBusca(termo) {
   renderizarCatalogo();
 }
 
-// Inicializa os ouvintes de eventos da vitrine
 export function inicializarCatalogo() {
   const listaElemento = document.getElementById('lista-livros');
 

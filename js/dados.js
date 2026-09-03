@@ -2,6 +2,7 @@ export const LIVROS = [
   {
     id: 'lv01a1b2',
     nome: 'Dom Casmurro',
+    autor: 'Machado de Assis',
     preco: 29.9,
     descricao:
       'Clássico de Machado de Assis, romance narrado por Bentinho sobre ciúme e dúvida.',
@@ -11,6 +12,7 @@ export const LIVROS = [
   {
     id: 'lv02c3d4',
     nome: '1984',
+    autor: 'George Orwell',
     preco: 39.9,
     descricao:
       'Distopia de George Orwell sobre vigilância totalitária e controle da informação.',
@@ -20,6 +22,7 @@ export const LIVROS = [
   {
     id: 'lv03e5f6',
     nome: 'O Pequeno Príncipe',
+    autor: 'Antoine de Saint-Exupéry',
     preco: 24.9,
     descricao:
       'Fábula de Antoine de Saint-Exupéry sobre amizade, amor e o sentido da vida.',
@@ -29,6 +32,7 @@ export const LIVROS = [
   {
     id: 'lv04g7h8',
     nome: 'Harry Potter e a Pedra Filosofal',
+    autor: 'J.K. Rowling',
     preco: 44.9,
     descricao:
       'Primeiro livro da saga de J.K. Rowling sobre o jovem bruxo Harry Potter.',
@@ -38,6 +42,7 @@ export const LIVROS = [
   {
     id: 'lv05i9j0',
     nome: 'O Senhor dos Anéis: A Sociedade do Anel',
+    autor: 'J.R.R. Tolkien',
     preco: 59.9,
     descricao: 'Primeiro volume da trilogia épica de J.R.R. Tolkien.',
     foto: 'https://m.media-amazon.com/images/I/81hCVEC0ExL.jpg',
@@ -46,6 +51,7 @@ export const LIVROS = [
   {
     id: 'lv06k1l2',
     nome: 'A Menina que Roubava Livros',
+    autor: 'Markus Zusak',
     preco: 34.9,
     descricao:
       'Romance de Markus Zusak ambientado na Alemanha nazista, narrado pela Morte.',
@@ -55,6 +61,7 @@ export const LIVROS = [
   {
     id: 'lv07m3n4',
     nome: 'Capitães da Areia',
+    autor: 'Jorge Amado',
     preco: 32.9,
     descricao: 'Jorge Amado retrata um grupo de meninos de rua em Salvador.',
     foto: 'https://cdl-static.s3-sa-east-1.amazonaws.com/covers/gg/9788535914061/capitaes-da-areia-com-posfacio-de-milton-hatoum.jpg',
@@ -63,6 +70,7 @@ export const LIVROS = [
   {
     id: 'lv08o5p6',
     nome: 'Sapiens: Uma Breve História da Humanidade',
+    autor: 'Yuval Noah Harari',
     preco: 49.9,
     descricao: 'Yuval Noah Harari traça a trajetória da espécie humana.',
     foto: 'https://m.media-amazon.com/images/I/81BTkpMrLYL.jpg',
@@ -71,6 +79,7 @@ export const LIVROS = [
   {
     id: 'lv09q7r8',
     nome: 'O Poder do Hábito',
+    autor: 'Charles Duhigg',
     preco: 39.9,
     descricao:
       'Charles Duhigg explica a ciência por trás da formação de hábitos.',
@@ -80,6 +89,7 @@ export const LIVROS = [
   {
     id: 'lv10s9t0',
     nome: 'A Culpa é das Estrelas',
+    autor: 'John Green',
     preco: 29.9,
     descricao: 'John Green narra o amor entre dois jovens com câncer.',
     foto: 'https://m.media-amazon.com/images/I/51M9IbBqxCL.jpg',
@@ -88,6 +98,7 @@ export const LIVROS = [
   {
     id: 'lv11u1v2',
     nome: 'It: A Coisa',
+    autor: 'Stephen King',
     preco: 54.9,
     descricao: 'Stephen King e o terror que assombra a cidade de Derry.',
     foto: 'https://m.media-amazon.com/images/I/91g9Dvtf+jL._AC_UF1000,1000_QL80_.jpg',
@@ -96,6 +107,7 @@ export const LIVROS = [
   {
     id: 'lv12w3x4',
     nome: 'O Alquimista',
+    autor: 'Paulo Coelho',
     preco: 34.9,
     descricao:
       'Paulo Coelho narra a jornada de Santiago em busca de seu tesouro pessoal.',
@@ -105,6 +117,7 @@ export const LIVROS = [
   {
     id: 'lv13y5z6',
     nome: 'A Revolução dos Bichos',
+    autor: 'George Orwell',
     preco: 27.9,
     descricao: 'Fábula política de George Orwell sobre poder e corrupção.',
     foto: 'https://aveceditora.com.br/wp-content/uploads/2025/02/capa.jpg',
@@ -113,6 +126,7 @@ export const LIVROS = [
   {
     id: 'lv14a7b8',
     nome: 'Vidas Secas',
+    autor: 'Graciliano Ramos',
     preco: 26.9,
     descricao:
       'Graciliano Ramos retrata a seca e a miséria no sertão nordestino.',
@@ -122,6 +136,7 @@ export const LIVROS = [
   {
     id: 'lv15c9d0',
     nome: 'Duna',
+    autor: 'Frank Herbert',
     preco: 64.9,
     descricao:
       'Frank Herbert constrói um universo de política, religião e ecologia no planeta Arrakis.',
@@ -131,6 +146,7 @@ export const LIVROS = [
   {
     id: 'lv16e1f2',
     nome: 'O Hobbit',
+    autor: 'J.R.R. Tolkien',
     preco: 44.9,
     descricao:
       'A aventura de Bilbo Bolseiro antes da trilogia do Senhor dos Anéis.',
@@ -140,6 +156,7 @@ export const LIVROS = [
   {
     id: 'lv17g3h4',
     nome: 'Orgulho e Preconceito',
+    autor: 'Jane Austen',
     preco: 32.9,
     descricao:
       'Jane Austen narra o relacionamento entre Elizabeth Bennet e o Sr. Darcy.',
@@ -149,6 +166,7 @@ export const LIVROS = [
   {
     id: 'lv18i5j6',
     nome: 'Extraordinário',
+    autor: 'R.J. Palacio',
     preco: 29.9,
     descricao:
       'R.J. Palacio conta a história de um garoto com diferenças faciais e sua jornada de aceitação.',
@@ -158,6 +176,7 @@ export const LIVROS = [
   {
     id: 'lv19k7l8',
     nome: 'O Diário de Anne Frank',
+    autor: 'Anne Frank',
     preco: 34.9,
     descricao:
       'Relato real de uma jovem judia escondida durante a Segunda Guerra Mundial.',
@@ -167,6 +186,7 @@ export const LIVROS = [
   {
     id: 'lv20m9n0',
     nome: 'A Sutil Arte de Ligar o F*da-se',
+    autor: 'Mark Manson',
     preco: 39.9,
     descricao:
       'Mark Manson propõe uma abordagem direta sobre valores e prioridades na vida.',
@@ -176,6 +196,7 @@ export const LIVROS = [
   {
     id: 'lv21o1p2',
     nome: 'Torto Arado',
+    autor: 'Itamar Vieira Junior',
     preco: 44.9,
     descricao:
       'Itamar Vieira Junior narra a saga de duas irmãs no sertão da Bahia.',
@@ -185,6 +206,7 @@ export const LIVROS = [
   {
     id: 'lv22q3r4',
     nome: 'O Nome do Vento',
+    autor: 'Patrick Rothfuss',
     preco: 54.9,
     descricao:
       'Patrick Rothfuss inicia a história de Kvothe, o lendário mago e músico.',
@@ -194,6 +216,7 @@ export const LIVROS = [
   {
     id: 'lv23s5t6',
     nome: 'Admirável Mundo Novo',
+    autor: 'Aldous Huxley',
     preco: 34.9,
     descricao:
       'Aldous Huxley imagina uma sociedade futura controlada por condicionamento genético.',
@@ -203,6 +226,7 @@ export const LIVROS = [
   {
     id: 'lv24u7v8',
     nome: 'Círculo de Fogo',
+    autor: 'Vários autores',
     preco: 42.9,
     descricao: 'Coletânea de contos de terror e mistério de autores nacionais.',
     foto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIdud7FfgUKIrvjS6EP5DZyofqvGht3r3nNvDTv-Hm1A&s',
@@ -211,6 +235,7 @@ export const LIVROS = [
   {
     id: 'lv25w9x0',
     nome: 'Como Fazer Amigos e Influenciar Pessoas',
+    autor: 'Dale Carnegie',
     preco: 36.9,
     descricao:
       'Dale Carnegie ensina princípios de relacionamento interpessoal.',

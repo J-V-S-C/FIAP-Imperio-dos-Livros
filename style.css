@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height, 100px);
 }
 
 body {
@@ -32,7 +33,7 @@ body {
   flex-direction: column;
   background-color: #17100b;
   color: #e8d7ad;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   background-image:
     linear-gradient(rgba(20, 10, 5, 0.45), rgba(20, 10, 5, 0.45)),
     url("https://c4.wallpaperflare.com/wallpaper/761/692/842/wood-texture-wooden-surface-pattern-wallpaper-preview.jpg");
@@ -188,7 +189,9 @@ body {
   color: #cdb47d;
   font-size: 13px;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .dropdown-content a::after {
@@ -215,7 +218,9 @@ body {
   border-radius: 20px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.3);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .search:focus-within {
@@ -254,27 +259,33 @@ body {
 
 /* Ícones e Botão do Carrinho */
 .icon2 {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-carrinho-toggle {
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 4px;
-  position: relative;
-  transition: transform 0.2s ease;
 }
 
-.icon2 img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  display: block;
+.icone-sacola {
+  width: 24px;
+  height: 24px;
+  stroke: #c49a4a;
+  transition:
+    stroke 0.25s ease,
+    transform 0.25s ease;
 }
 
-.icon2:hover {
-  transform: scale(1.12);
+.btn-carrinho-toggle:hover .icone-sacola {
+  stroke: #f0d17c;
+  transform: scale(1.1);
 }
 
 .badge-carrinho {
@@ -359,7 +370,7 @@ body {
   padding: 60px 0 80px;
 }
 
-.catalogo>h2 {
+.catalogo > h2 {
   margin-bottom: 35px;
   text-align: center;
   font-size: 30px;
@@ -387,17 +398,17 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
 }
-
 /* Card do Livro */
 .card {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   overflow: hidden;
-  background: linear-gradient(145deg,
-      rgba(36, 21, 12, 0.97),
-      rgba(23, 16, 11, 0.97));
+  background: linear-gradient(
+    145deg,
+    rgba(36, 21, 12, 0.97),
+    rgba(23, 16, 11, 0.97)
+  );
   border: 1px solid #6e5128;
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
@@ -425,7 +436,7 @@ body {
 }
 
 .card-conteudo {
-  padding: 16px 18px 8px;
+  padding: 18px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -444,27 +455,41 @@ body {
   color: #e0c890;
   font-size: 18px;
   line-height: 1.3;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
-.card p {
+.autor-livro {
+  margin-bottom: 8px;
+  color: #a98a55;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.descricao-livro {
   color: #c8aa72;
   font-family: Arial, sans-serif;
   font-size: 13px;
   line-height: 1.45;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.card-acoes {
-  padding: 0 18px 18px;
+/* Rodapé do Card: Preço em destaque e alinhado no fundo */
+.card-rodape {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(196, 154, 74, 0.2);
 }
 
-.card-preco {
-  color: #d8b86a;
+.preco-destaque {
   font-family: Georgia, serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  margin-bottom: 12px;
+  color: #e6c875;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .btn-comprar {
@@ -482,7 +507,6 @@ body {
 
 .btn-comprar:hover {
   background: #6b241b;
-  border-color: #d8b86a;
   color: #ffffff;
 }
 
@@ -706,7 +730,9 @@ body {
   z-index: 1500;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
 }
 
 .overlay-carrinho.aberto {
@@ -734,7 +760,9 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   opacity: 0;
   z-index: 3000;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
   pointer-events: none;
 }
 
@@ -758,16 +786,57 @@ body {
    --------------------------------------------------------- */
 .footer {
   width: 100%;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 30px;
+  padding: 50px 30px 25px;
   background: rgba(20, 10, 5, 0.97);
   border-top: 1px solid #8c6a35;
   color: #d8c18a;
   font-family: Georgia, serif;
-  font-size: 14px;
+}
+
+.footer-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 45px;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+.footer-coluna {
+  max-width: 340px;
+}
+
+.footer-coluna h3 {
+  margin-bottom: 14px;
+  color: #e0c890;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.footer-coluna p {
+  color: #c8aa72;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer-contato-lista {
+  list-style: none;
+}
+
+.footer-contato-lista li {
+  margin-bottom: 8px;
+  color: #c8aa72;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+.footer-copyright {
+  padding-top: 20px;
+  border-top: 1px solid rgba(140, 106, 53, 0.4);
+  color: #a98a55;
+  font-family: Georgia, serif;
+  font-size: 13px;
   text-align: center;
 }
 
@@ -851,7 +920,7 @@ body {
     padding: 40px 0 60px;
   }
 
-  .catalogo>h2 {
+  .catalogo > h2 {
     font-size: 24px;
   }
 
@@ -871,6 +940,15 @@ body {
   }
 
   .footer {
-    font-size: 12px;
+    padding: 40px 20px 20px;
+  }
+
+  .footer-conteudo {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-coluna {
+    max-width: 100%;
   }
 }
