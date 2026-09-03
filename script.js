@@ -8,6 +8,9 @@ const linkLivros = document.getElementById('link-livros');
 const linkSobre = document.getElementById('link-sobre');
 const linkContato = document.getElementById('link-contato');
 const footer = document.querySelector('.footer');
+const btnBuscaMobile = document.getElementById('btn-busca-mobile');
+const campoBusca = document.querySelector('.search');
+const inputBusca = document.querySelector('.search input');
 
 
 // Mantém a variável --header-height sempre atualizada. O header quebra em
@@ -53,6 +56,17 @@ overlayCarrinho.addEventListener('click', () => {
 
     carrinho.classList.remove('aberto');
     overlayCarrinho.classList.remove('aberto');
+
+});
+
+// Abrir/fechar busca no mobile
+btnBuscaMobile.addEventListener('click', () => {
+
+    campoBusca.classList.toggle('busca-aberta');
+
+    if (campoBusca.classList.contains('busca-aberta')) {
+        inputBusca.focus();
+    }
 
 });
 

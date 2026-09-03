@@ -233,6 +233,29 @@ body {
     font-size: 17px;
 }
 
+/* BOTÃO DE BUSCA MOBILE */
+
+.btn-busca-mobile {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: #C7A45D;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    padding: 4px;
+
+    transition: 0.3s ease;
+}
+
+.btn-busca-mobile:hover {
+    color: #F0D17C;
+    transform: scale(1.1);
+}
 
 /* ÍCONES */
 
@@ -792,9 +815,7 @@ body {
     text-align: center;
 }
 
-/* =========================================
-   CARRINHO LATERAL
-========================================= */
+/* CARRINHO LATERAL */
 
 .carrinho {
     position: fixed;
@@ -943,9 +964,7 @@ body {
 }
 
 
-/* =========================================
-   MENSAGEM (TOAST) DE FINALIZAÇÃO DE COMPRA
-========================================= */
+/* MENSAGEM (TOAST) DE FINALIZAÇÃO DE COMPRA */
 
 .toast-carrinho {
     position: fixed;
@@ -1141,9 +1160,7 @@ body {
 }
 
 
-/* =========================================
-   FUNDO ESCURO
-========================================= */
+/* FUNDO ESCURO */
 
 .overlay-carrinho {
     position: fixed;
@@ -1174,6 +1191,30 @@ body {
 
 
 /* 𝑹𝑬𝑺𝑷𝑶𝑵𝑺𝑰𝑽𝑰𝑫𝑨𝑫𝑬 */
+
+/* BOTÃO DE BUSCA MOBILE */
+
+.btn-busca-mobile {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: #C7A45D;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    padding: 4px;
+
+    transition: 0.3s ease;
+}
+
+.btn-busca-mobile:hover {
+    color: #F0D17C;
+    transform: scale(1.1);
+}
 
 @media (max-width: 1100px) {
 
@@ -1252,6 +1293,7 @@ body {
         text-align: center;
     }
 
+    /* AÇÕES DO HEADER */
     .header-actions {
         order: 2;
         position: static;
@@ -1261,10 +1303,33 @@ body {
         gap: 15px;
     }
 
+    /* BUSCA */
     .search {
         display: none;
     }
+    .btn-busca-mobile {
+        display: block;
+    }
 
+    /* Busca aberta */
+
+    .search.busca-aberta {
+        display: flex;
+
+        position: absolute;
+
+        top: calc(var(--header-height) + 8px);
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: min(90vw, 320px);
+
+        z-index: 1200;
+    }
+
+    /* HERO */
     .hero h2 {
         font-size: 30px;
     }
@@ -1322,9 +1387,7 @@ body {
     }
 }
 
-/* =========================================
-   RESPONSIVIDADE DO CARRINHO
-========================================= */
+/* RESPONSIVIDADE DO CARRINHO */
 
 @media (max-width: 600px) {
 
