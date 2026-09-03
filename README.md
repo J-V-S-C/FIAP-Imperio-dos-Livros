@@ -1,66 +1,77 @@
-## Observações
+# Império dos Livros — E-commerce Web
 
-* **Padrão de commits:** Escreva mensagens claras indicando o que foi feito com uma breve descrição do contexto.
-* **Divisão de tarefas:** Manter a documentação com as responsabilidades de cada membro do squad sempre atualizada.
-
----
-
-## Checklist de Tarefas
-
-- [ ] **Definição de Layout CSS e Documentação Técnica:**
-  - [ ] Definir cores e tipografia
-  - [ ] Responsividade e coerência
-  - [ ] Flexbox
-  - [ ] CSS Grid
-  - [ ] Abordagem Híbrida (Grid + Flexbox)
-  - [ ] Outro recurso CSS com justificativa técnica
-- [ ] **Visualização de Produto** (vitrine e detalhes)
-- [ ] **Carrinho de Compras** (gerenciamento de estado e interação com produtos)
-- [ ] **Fluxo de Checkout / Compra**
+Aplicação e-commerce funcional para uma livraria virtual temática, desenvolvida como projeto colaborativo. A plataforma permite navegação por catálogo, filtragem dinâmica por gênero e busca, gerenciamento de carrinho lateral com persistência de dados e simulação de checkout.
 
 ---
 
-## Requisitos Obrigatórios
+## Links do Projeto
 
-* **Manipulação de Dados:** Uso de arrays e objetos para renderização dinâmica de produtos e categorias.
-* **Fluxo de E-commerce:** Carrinho funcional com simulação de checkout.
-* **UI/UX e Design:** Layout responsivo, identidade visual consistente e foco na experiência da pessoa usuária.
-* **Arquitetura e Clean Code:** Estrutura organizada, componentização e boas práticas de HTML5, CSS3 e JavaScript Moderno.
-* **Fluxo de Trabalho Git:** Uso correto de branches, Pull Requests revisados, commits semânticos e participação ativa de todo o squad.
-* **Entrega:** Deploy funcional via Vercel, `README.md` completo e documentação técnica detalhada.
+* Aplicação Publicada (Vercel): https://fiap-imperio-dos-livros.vercel.app/
 
 ---
 
-## Dicas de Git (Workflow)
+## Squad e Divisão de Responsabilidades
 
+Integrantes do Squad:
+- João Victor Barbon Naymayer
+- João Vitor Dutra de Freitas
+- João Victor Sant'Ana Cortabitart
 
-Atualizar a branch principal antes de iniciar novas tarefas:
-```bash
-git pull origin main
+| Integrante | Responsabilidades e Módulos desenvolvidos |
+| :--- | :--- |
+| João Victor Sant'Ana Cortabitart | Lógica do carrinho, persistência em localStorage, simplificação de lógica, criação de toast. |
+| João Victor Barbon Naymayer | Criação do catálogo e filtros, dropdowns de categorias, renderização dos livros. |
+| João Vitor Dutra de Freitas | Estilização CSS3 modular (style.css), HTML semântico,implementação da estratégia híbrida (Grid + Flexbox), design responsivo e refinamento estético da vitrine, carrinho lateral. |
 
-```
-```bash
-# Criar e alternar para uma nova branch de desenvolvimento:
+---
 
-git checkout -b <nome-da-branch>
-```
+## Defesa Técnica do Layout CSS
 
-Publicar a nova branch no repositório remoto:
-```bash
+A arquitetura visual da aplicação adota a estratégia híbrida (CSS Grid + Flexbox) combinada com Media Queries, alocando cada recurso para sua finalidade técnica nativa:
 
-git add .
-git commit -m "mensagem"
-git push -u origin <nome-da-branch>
+1. CSS Grid (Layout Macro e Catálogo):
+   - Por que usamos: Aplicado na vitrine do catálogo por ser um sistema bidimensional (linhas e colunas simultâneas).
+   - Implementação: Com a diretiva `grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))`, o catálogo se reorganiza dinamicamente de acordo com a largura da tela. Isso garante cartões proporcionalmente distribuídos sem necessidade de scripts auxiliares para cálculo de tela.
 
-```
+2. Flexbox (Componentes e Micro-alinhamentos):
+   - Por que usamos: Utilizado no cabeçalho, barra de busca, menu de navegação, gaveta do carrinho (drawer) e interior dos cartões por ser um sistema unidimensional (eixo único).
+   - Implementação: Nos cards de livros (`flex-direction: column; justify-content: space-between`), a propriedade `margin-top: auto` no container do preço e botão garante que os controles de compra permaneçam perfeitamente alinhados no rodapé do card, independentemente do tamanho do título ou da descrição do livro.
 
-### Defesa Técnica do Layout CSS
+3. Media Queries (Adaptação Responsiva):
+   - Por que usamos: Regras condicionais `@media` ajustam pontos de quebra para telas mobile, tablet e desktop.
+   - Implementação: Reorganizam o header e menus de navegação em telas menores (abaixo de 850px e 600px), ajustam o dimensionamento da gaveta do carrinho e reorganizam a grade para exibição em coluna única no mobile.
 
+---
 
-Adotamos a **abordagem híbrida (CSS Grid + Flexbox)** combinada com **Media Queries**, aplicando cada ferramenta conforme sua finalidade técnica ideal:
+## Workflow de Versionamento no Git/GitHub
 
-* **CSS Grid (Layout Macro e Catálogo):** Utilizado para a estrutura global da página e a vitrine de produtos por ser **bidimensional** (linhas e colunas simultâneas). Com a propriedade `grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))`, os cards de livros se reorganizam automaticamente conforme o espaço disponível, mantendo proporções perfeitas sem a necessidade de scripts auxiliares.
+Para manter a estabilidade do projeto e evitar conflitos destrutivos, adotamos o seguinte fluxo de trabalho:
 
-* **Flexbox (Componentes e Micro-alinhamentos):** Utilizado para a barra de navegação, controles do carrinho e interior dos cards de produtos por ser **unidimensional** (eixo único). Nos cards (`flex-direction: column; justify-content: space-between`), o Flexbox garante que os botões de compra fiquem sempre alinhados na base, independentemente da variação de linhas no título ou autor do livro.
+1. Estratégia de Branches:
+   - A branch `main` foi mantida estritamente como ambiente de produção estável.
+   - Cada integrante desenvolveu suas features em branches individuais.
+2. Integração via Pull Requests (PRs):
+   - Nenhuma alteração foi inserida diretamente na `main`. As integrações ocorreram via Pull Requests revisados e resolvidos pelo grupo.
+3. Padrão de Commits:
+   - Commits descritivos orientados ao histórico do projeto (ex.: `feat: adiciona manipulador do carrinho em localStorage`, `fix: resolve conflitos de estilo no header`), evitando termos genéricos.
 
-* **Media Queries (Adaptação Responsiva):** São diretivas CSS (`@media`) que detectam características do dispositivo (principalmente a largura da tela/viewport) para aplicar regras de estilo condicionais. Foram utilizadas para reestruturar o layout entre mobile e desktop — como transformar o menu horizontal em menu recolhível e ajustar o fluxo do checkout em telas menores, garantindo usabilidade tátil e legibilidade.
+---
+
+## Funcionalidades Principais
+
+* Catálogo Dinâmico: Renderização de livros via JavaScript a partir de conjunto estruturado de dados.
+* Filtro & Busca: Filtragem simultânea por gênero literário e busca textual em tempo real.
+* Carrinho Lateral (Drawer):
+  - Adição, incremento, decremento e remoção individual de itens.
+  - Atualização dinâmica de quantidade total, badge do cabeçalho e subtotal.
+  - Persistência dos itens via `localStorage` (os itens permanecem ao recarregar a página).
+* Feedback Visual: Notificações flutuantes (toasts) informando ações de adição, avisos e confirmações.
+* Simulação de Checkout: Validação de carrinho vazio e encerramento com limpeza de estado.
+
+---
+
+## Tecnologias Utilizadas
+
+* HTML5: Estrutura semântica e atributos de acessibilidade.
+* CSS3: Variáveis CSS, Flexbox, CSS Grid, Animações e Media Queries.
+* JavaScript (ES6+): Módulos nativos (`import`/`export`), `CustomEvent`, `Map` e `localStorage`.
